@@ -1,0 +1,71 @@
+@using System.Text.RegularExpressions;
+
+@{
+    // Change the Angular app name to match your application
+    var appName = "test-dnn-sxc-angular";
+
+    var cookieKey = "app-" + App.AppId + "-version";
+    var version = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
+
+    var resourcesPath = App.Path + "/dist/" + version + "/" + appName;
+    
+    if(version == "local") {
+        resourcesPath = "http://localhost:4200";
+    }
+}
+
+@if(Dnn.User.IsSuperUser) {
+    <script>
+        // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
+        function setCookie(name,value,days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        }
+        function eraseCookie(name) {   
+            document.cookie = name+'=; Max-Age=-99999999;';  
+        }
+        function setVersion(version) {
+            let cookieName = 'app-@App.AppId-version';
+            if(version)
+                setCookie(cookieName, version);
+            else
+                eraseCookie(cookieName);
+        }
+    </script>
+    <div class="alert alert-info">
+        <p>Change version:</p>
+        <div class="btn-group">
+            <button onclick="setVersion()" class="btn btn-default">Live</button>
+            <button onclick="setVersion('staging')" class="btn btn-default">Staging</button>
+            <button onclick="setVersion('local')" class="btn btn-default">Local</button>
+        </div>
+    </div>
+}
+
+<script type="text/javascript" src="/desktopmodules/tosic_sexycontent/js/2sxc.api.min.js"></script>
+<base href="/">
+
+@if(version != "local") {
+    // Read body contents from index.html
+    var html_orig = System.IO.File.ReadAllText(Server.MapPath(App.Path + "/dist/" + appName + "/index.html"));
+    // Add body contents
+    var html = Regex.Match(html_orig, "<body>(.*?)</body>", RegexOptions.Singleline).Groups[1].Value;
+    // Add stylesheets
+    html += Regex.Match(html_orig, "<link rel=\"stylesheet\".*?>", RegexOptions.Singleline).Groups[0].Value;
+    // Change stylesheet and script paths
+    html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
+    
+    <text>@Html.Raw(html)</text>
+} else {
+    <app-root></app-root>
+    <script src="@resourcesPath/runtime.js" type="module"></script>
+    <script src="@resourcesPath/polyfills.js" type="module"></script>
+    <script src="@resourcesPath/styles.js" type="module"></script>
+    <script src="@resourcesPath/vendor.js" type="module"></script>
+    <script src="@resourcesPath/main.js" type="module"></script>
+}
