@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'person-list',
-    template: `List of all persons:<br> <person *ngFor="let person of persons" [person]="person"></person>`
+    templateUrl: './person-list.component.html',
+    //template: `List of all persons:<br> <person *ngFor="let person of persons" [person]="person"></person>`
 })
 export class PersonListComponent implements OnInit {
     persons: Person[];
 
     constructor(
-        private data: Data,
-        private http: HttpClient
+        private data: Data
     ) {
     }
 
