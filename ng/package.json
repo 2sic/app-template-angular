@@ -2,7 +2,7 @@
   "name": "test-dnn-sxc-angular",
   "version": "0.0.0",
   "config": {
-    "publish_path": "C:\\Temp\\",
+    "publish_path": "C:\\Projects\\Test Websites\\dnn940-rm1\\Website\\Portals\\0\\2sxc\\Test dnn-sxc-angular\\dist",
     "publish_glob": "{dist/**,api/**,_AngularHost.cshtml}"
   },
   "scripts": {
@@ -12,11 +12,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "//start": "comment",
     "start": "ng serve --public-host localhost:4200 --disable-host-check",
     "publish-staging": "copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\staging\"",
-    "publish-live": "copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\live\"",
-    "git-is-clean": "git diff --exit-code && echo git is clean"
+    "publish-live": "copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\live\""
   },
   "private": true,
   "dependencies": {
