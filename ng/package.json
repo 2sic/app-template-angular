@@ -2,7 +2,7 @@
   "name": "ng-app",
   "version": "0.0.0",
   "config": {
-    "publish_path": "C:\\Projects\\Test Websites\\dnn940-rm1\\Website\\Portals\\0\\2sxc\\Test dnn-sxc-angular",
+    "publish_path": "..",
     "publish_glob": "{dist/**,api/**,_AngularHost.cshtml}"
   },
   "scripts": {
