@@ -8,6 +8,12 @@
             "script": "publish-staging",
             "path": "ng/",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "start",
+            "path": "ng/",
+            "problemMatcher": []
         }
     ]
 }

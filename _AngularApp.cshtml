@@ -1,10 +1,15 @@
 @using System.Text.RegularExpressions;
-
 @{
+    // Get the helper code to better integrate angular
+    var ngHelpers = CreateInstance("./shared/_AngularIntegration.cshtml");
+
     // Change the Angular app name to match your application
     var appName = "ng-app";
 
+    // the cookie name to store the edition when developing / testing
     var cookieKey = "app-" + App.AppId + "-edition";
+
+
     var edition = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
 
     var resourcesPath = App.Path + "/" + edition + "/dist/" + appName;
