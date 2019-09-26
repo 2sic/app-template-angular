@@ -15,7 +15,8 @@ let publishPath = `${package.config.publish_path}/${edition}`;
 console.log(`Cleaning up ${publishPath}...`)
 del.sync(`${publishPath}/{dist/${appName}}`, { force: true })
 
-// // Publishing
+// Publishing
 console.log(`Publishing to ${publishPath}`)
 cpx.copySync("dist/**/*.*", `${publishPath}/dist`) // publish dist folder (ng-app)
 cpx.copySync("../dev/api/*.*", `${publishPath}/api`) // publish API folder
+cpx.copySync("../**/*.cshtml", `${publishPath}/..`)
