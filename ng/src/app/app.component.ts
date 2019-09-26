@@ -7,7 +7,7 @@ import { DnnAppComponent, Context } from '@2sic.com/dnn-sxc-angular';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends DnnAppComponent {
-  title = 'test-dnn-sxc-angular';
+  title = 'ng-app';
   constructor(el: ElementRef, context: Context) {
     super(el, context);
   }
