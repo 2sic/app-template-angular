@@ -3,76 +3,28 @@
     // Get the helper code to better integrate angular
     var ngHelpers = CreateInstance("./shared/_AngularIntegration.cshtml");
 
-    // Change the Angular app name to match your application
-    var appName = "ng-app";
-
-    // the cookie name to store the edition when developing / testing
-    var cookieKey = "app-" + App.AppId + "-edition";
-
-
-    var edition = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
-
-    var resourcesPath = App.Path + "/" + edition + "/dist/" + appName;
-    
-    if(edition == "local") {
-        resourcesPath = "http://localhost:4200";
-    }
+    // Configure the helper - most things are ok by default
+    // to override, uncomment a line and change to your needs
+    ngHelpers.Configure(
+      // appName: "ng-app",
+      // appTag: "app-root",
+      // editions: new string[] {"live", "staging", "local"},
+      // defaultEdition: "live",
+      // localDevEdition: "local",
+      // localDevServer:  "http://localhost:4200"
+    );
 }
 
+@* add base-href tag and basic JS files for everything to work *@
+@ngHelpers.AddBaseTagAndCoreJs()
+
+@* Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
 @if(Dnn.User.IsSuperUser) {
-    <script>
-        window.sxcAngularApp = {
-            // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
-            setCookie: function setCookie(name,value,days) {
-                var expires = "";
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime() + (days*24*60*60*1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-            },
-            eraseCookie: function eraseCookie(name) {   
-                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-            },
-            setEdition: function setEdition(edition) {
-                let cookieName = 'app-@App.AppId-edition';
-                if(edition)
-                    this.setCookie(cookieName, edition);
-                else
-                    this.eraseCookie(cookieName);
-            }
-        }
-    </script>
-    <div class="alert alert-info">
-        <p>Change edition (current: @edition):</p>
-        <div class="btn-group">
-            <button onclick="sxcAngularApp.setEdition()" class="btn btn-default">Live</button>
-            <button onclick="sxcAngularApp.setEdition('staging')" class="btn btn-default">Staging</button>
-            <button onclick="sxcAngularApp.setEdition('local')" class="btn btn-default">Local</button>
-        </div>
-    </div>
+  @ngHelpers.ShowEditionSelectorForThisApp()
 }
 
-<script type="text/javascript" src="/desktopmodules/tosic_sexycontent/js/2sxc.api.min.js"></script>
-<base href="@Dnn.Tab.FullUrl">
-
-@if(edition != "local") {
-    // Read body contents from index.html
-    var html_orig = System.IO.File.ReadAllText(Server.MapPath(resourcesPath + "/index.html"));
-    // Add body contents
-    var html = Regex.Match(html_orig, "<body>(.*?)</body>", RegexOptions.Singleline).Groups[1].Value;
-    // Add stylesheets
-    html += Regex.Match(html_orig, "<link rel=\"stylesheet\".*?>", RegexOptions.Singleline).Groups[0].Value;
-    // Change stylesheet and script paths
-    html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
-    
-    <text>@Html.Raw(html)</text>
+@if(ngHelpers.CurrentEdition == ngHelpers.LocalDevEdition) {
+  @ngHelpers.LoadFromLocalDev()
 } else {
-    <app-root></app-root>
-    <script src="@resourcesPath/runtime.js" type="module"></script>
-    <script src="@resourcesPath/polyfills.js" type="module"></script>
-    <script src="@resourcesPath/styles.js" type="module"></script>
-    <script src="@resourcesPath/vendor.js" type="module"></script>
-    <script src="@resourcesPath/main.js" type="module"></script>
+  @ngHelpers.LoadFromDnn();
 }
