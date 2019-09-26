@@ -74,6 +74,7 @@
       <div class="btn-group">
         @foreach(var name in Editions) {
           <button 
+            type="button"
             onclick="sxcAngularApp.setEdition('@name')" 
             class='btn btn-default @(name == CurrentEdition ? "selected" : "not-selected")'>
               @name
@@ -102,6 +103,9 @@
           this.setCookie(cookieName, edition);
         else
           this.eraseCookie(cookieName);
+
+        // reload page, preserving hash & angular route
+        location.reload();
       }
     }
   </script>
