@@ -7,7 +7,7 @@
     var cookieKey = "app-" + App.AppId + "-version";
     var version = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
 
-    var resourcesPath = App.Path + "/dist/" + version + "/" + appName;
+    var resourcesPath = App.Path + "/" + version + "/dist/" + appName;
     
     if(version == "local") {
         resourcesPath = "http://localhost:4200";
@@ -38,7 +38,7 @@
         }
     </script>
     <div class="alert alert-info">
-        <p>Change version:</p>
+        <p>Change version (current: @version):</p>
         <div class="btn-group">
             <button onclick="setVersion()" class="btn btn-default">Live</button>
             <button onclick="setVersion('staging')" class="btn btn-default">Staging</button>
@@ -52,7 +52,7 @@
 
 @if(version != "local") {
     // Read body contents from index.html
-    var html_orig = System.IO.File.ReadAllText(Server.MapPath(App.Path + "/dist/" + appName + "/index.html"));
+    var html_orig = System.IO.File.ReadAllText(Server.MapPath(resourcesPath + "/index.html"));
     // Add body contents
     var html = Regex.Match(html_orig, "<body>(.*?)</body>", RegexOptions.Singleline).Groups[1].Value;
     // Add stylesheets
