@@ -12,12 +12,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start": "ng serve --public-host localhost:4200 --disable-host-check",
-    "publish-staging": "del-cli \"%npm_package_config_publish_path%\\staging\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\staging\"",
-    "publish-live": "del-cli \"%npm_package_config_publish_path%\\live\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\live\""
+    "publish-staging": "ng build --prod && del-cli \"%npm_package_config_publish_path%\\staging\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\staging\"",
+    "publish-live": "ng build --prod && del-cli \"%npm_package_config_publish_path%\\live\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\live\""
   },
   "private": true,
   "dependencies": {
-    "@2sic.com/dnn-sxc-angular": "^6.0.8",
+    "@2sic.com/dnn-sxc-angular": "^8.0.0",
     "@angular/animations": "~8.2.5",
     "@angular/common": "~8.2.5",
     "@angular/compiler": "~8.2.5",
