@@ -2,8 +2,7 @@
   "name": "ng-app",
   "version": "0.0.0",
   "config": {
-    "publish_path": "..",
-    "publish_glob": "{dist/**,../dev/api/**}"
+    "publish_path": ".."
   },
   "scripts": {
     "ng": "ng",
@@ -12,8 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start": "ng serve --public-host localhost:4200 --disable-host-check",
-    "publish-staging": "ng build --prod && del-cli \"%npm_package_config_publish_path%\\staging\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\staging\"",
-    "publish-live": "ng build --prod && del-cli \"%npm_package_config_publish_path%\\live\\dist\\ng-app\" --force && copyfiles \"%npm_package_config_publish_glob%\" \"%npm_package_config_publish_path%\\live\""
+    "publish-staging": "ng build --prod && node publish.js staging",
+    "publish-live": "ng build --prod && node publish.js live"
   },
   "private": true,
   "dependencies": {
@@ -39,8 +38,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
-    "copyfiles": "^2.1.1",
-    "del-cli": "^3.0.0",
+    "cpx": "^1.5.0",
+    "del": "^5.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
