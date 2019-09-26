@@ -13,7 +13,6 @@ export class PersonListComponent implements OnInit {
         private data: Data,
         private http: HttpClient
     ) {
-      console.log('debug http', http);
     }
 
     ngOnInit() {
