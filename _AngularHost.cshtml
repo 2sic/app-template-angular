@@ -4,45 +4,47 @@
     // Change the Angular app name to match your application
     var appName = "test-dnn-sxc-angular";
 
-    var cookieKey = "app-" + App.AppId + "-version";
-    var version = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
+    var cookieKey = "app-" + App.AppId + "-edition";
+    var edition = Request.Cookies.AllKeys.Contains(cookieKey) ? Request.Cookies[cookieKey].Value : "live";
 
-    var resourcesPath = App.Path + "/" + version + "/dist/" + appName;
+    var resourcesPath = App.Path + "/" + edition + "/dist/" + appName;
     
-    if(version == "local") {
+    if(edition == "local") {
         resourcesPath = "http://localhost:4200";
     }
 }
 
 @if(Dnn.User.IsSuperUser) {
     <script>
-        // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
-        function setCookie(name,value,days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days*24*60*60*1000));
-                expires = "; expires=" + date.toUTCString();
+        window.sxcAngularApp = {
+            // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
+            setCookie: function setCookie(name,value,days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            },
+            eraseCookie: function eraseCookie(name) {   
+                document.cookie = name+'=; Max-Age=-99999999;';  
+            },
+            setEdition: function setEdition(edition) {
+                let cookieName = 'app-@App.AppId-edition';
+                if(edition)
+                    this.setCookie(cookieName, edition);
+                else
+                    this.eraseCookie(cookieName);
             }
-            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-        }
-        function eraseCookie(name) {   
-            document.cookie = name+'=; Max-Age=-99999999;';  
-        }
-        function setVersion(version) {
-            let cookieName = 'app-@App.AppId-version';
-            if(version)
-                setCookie(cookieName, version);
-            else
-                eraseCookie(cookieName);
         }
     </script>
     <div class="alert alert-info">
-        <p>Change version (current: @version):</p>
+        <p>Change edition (current: @edition):</p>
         <div class="btn-group">
-            <button onclick="setVersion()" class="btn btn-default">Live</button>
-            <button onclick="setVersion('staging')" class="btn btn-default">Staging</button>
-            <button onclick="setVersion('local')" class="btn btn-default">Local</button>
+            <button onclick="sxcAngularApp.setEdition()" class="btn btn-default">Live</button>
+            <button onclick="sxcAngularApp.setEdition('staging')" class="btn btn-default">Staging</button>
+            <button onclick="sxcAngularApp.setEdition('local')" class="btn btn-default">Local</button>
         </div>
     </div>
 }
@@ -50,7 +52,7 @@
 <script type="text/javascript" src="/desktopmodules/tosic_sexycontent/js/2sxc.api.min.js"></script>
 <base href="/">
 
-@if(version != "local") {
+@if(edition != "local") {
     // Read body contents from index.html
     var html_orig = System.IO.File.ReadAllText(Server.MapPath(resourcesPath + "/index.html"));
     // Add body contents
