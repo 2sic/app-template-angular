@@ -5,14 +5,29 @@
     "tasks": [
         {
             "type": "npm",
-            "script": "publish-staging",
+            "script": "local",
             "path": "ng/",
             "problemMatcher": []
         },
         {
             "type": "npm",
-            "script": "local",
+            "script": "build",
             "path": "ng/",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "build-to-staging",
+            "path": "ng/",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "build-to-live",
+            "path": "ng/",
+            "group": "build",
             "problemMatcher": []
         }
     ]
