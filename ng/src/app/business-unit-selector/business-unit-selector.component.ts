@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BusinessUnit } from '../models/business-unit';
 import { Data } from '@2sic.com/dnn-sxc-angular';
+import { PersonsService } from '../services/persons.service';
 
 @Component({
   selector: 'app-business-unit-selector',
@@ -10,15 +11,22 @@ import { Data } from '@2sic.com/dnn-sxc-angular';
 })
 export class BusinessUnitSelectorComponent implements OnInit {
 
-  BuList: Observable<BusinessUnit[]>;
+  buList: Observable<BusinessUnit[]>;
+  selected: Observable<string>;
   constructor(
-    private data: Data
+    private data: Data,
+    private personSvc: PersonsService
   ) {
     // get an observable list of BusinessUnit items from the backend
-    this.BuList = this.data.content$<BusinessUnit>('BusinessUnit');
+    this.buList = this.data.content$<BusinessUnit>('BusinessUnit');
+    this.selected = personSvc.BuFilter;
    }
 
   ngOnInit() {
+  }
+
+  selectBu(bu: string) {
+    this.personSvc.BuFilter.next(bu);
   }
 
 }

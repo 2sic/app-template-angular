@@ -13,10 +13,10 @@ export class PersonsService {
   Persons: Observable<Person[]>;
 
   constructor(
-    private data: Data
+    data: Data
   ) {
     this.Persons = this.BuFilter.pipe(
-      flatMap(bu => data.query$<PersonQuery>('BusinessUnitTeam')),
+      flatMap(bu => data.query$<PersonQuery>('BusinessUnitTeam?bu=' + bu)),
       map(pq => pq.Default)
       );
   }
