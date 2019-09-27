@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "ng serve --public-host localhost:4200 --disable-host-check",
+    "local": "ng serve --public-host localhost:4200 --disable-host-check",
     "publish-staging": "ng build --prod && node publish.js staging",
     "publish-live": "ng build --prod && node publish.js live"
   },
