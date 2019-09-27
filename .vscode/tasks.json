@@ -11,7 +11,7 @@
         },
         {
             "type": "npm",
-            "script": "start",
+            "script": "local",
             "path": "ng/",
             "problemMatcher": []
         }

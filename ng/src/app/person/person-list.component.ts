@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'person-list',
     templateUrl: './person-list.component.html',
-    //template: `List of all persons:<br> <person *ngFor="let person of persons" [person]="person"></person>`
 })
 export class PersonListComponent implements OnInit {
     persons: Person[];
