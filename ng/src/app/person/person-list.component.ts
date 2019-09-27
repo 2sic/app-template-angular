@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '@2sic.com/dnn-sxc-angular';
-import { HttpClient } from '@angular/common/http';
+import { Person } from '../models/person';
+import { PersonsService } from '../services/persons.service';
 
 @Component({
     selector: 'person-list',
@@ -10,16 +11,14 @@ export class PersonListComponent implements OnInit {
     persons: Person[];
 
     constructor(
-        private data: Data
+        private data: Data,
+        public p2: PersonsService
     ) {
+
     }
 
     ngOnInit() {
         this.data.content<Person>('person').get()
             .subscribe(persons => this.persons = persons);
     }
-}
-
-class Person {
-    Name: string;
 }

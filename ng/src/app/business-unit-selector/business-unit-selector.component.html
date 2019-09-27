@@ -1,0 +1,8 @@
+<div>
+  Business Unit:
+  <ol>
+    <li *ngFor="let bu of BuList | async">
+      {{ bu.Name }}
+    </li>
+  </ol>
+</div>

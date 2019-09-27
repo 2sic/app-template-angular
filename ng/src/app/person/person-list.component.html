@@ -1,6 +1,6 @@
 List of all persons: <br>
 <ol>
-  <li *ngFor="let person of persons">
+  <li *ngFor="let person of p2.Persons | async">
     <person [person]="person"></person>
   </li>
 </ol>
