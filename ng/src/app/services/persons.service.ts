@@ -16,12 +16,7 @@ export class PersonsService {
     data: Data
   ) {
     this.Persons = this.BuFilter.pipe(
-      flatMap(bu => data.query$<PersonQuery>('BusinessUnitTeam?bu=' + bu)),
-      map(pq => pq.Default)
+      flatMap(bu => data.query$<Person[]>('BusinessUnitTeam?bu=' + bu))
       );
   }
-}
-
-interface PersonQuery {
-  Default: Person[];
 }

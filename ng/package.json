@@ -17,7 +17,7 @@
   },
   "private": true,
   "dependencies": {
-    "@2sic.com/dnn-sxc-angular": "^8.0.1",
+    "@2sic.com/dnn-sxc-angular": "^8.0.2",
     "@angular/animations": "~8.2.5",
     "@angular/common": "~8.2.5",
     "@angular/compiler": "~8.2.5",
