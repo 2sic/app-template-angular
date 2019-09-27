@@ -2,23 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '@2sic.com/dnn-sxc-angular';
 import { Person } from '../models/person';
 import { PersonsService } from '../services/persons.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'person-list',
     templateUrl: './person-list.component.html',
 })
-export class PersonListComponent implements OnInit {
-    persons: Person[];
+export class PersonListComponent {
+    persons: Observable<Person[]>;
 
     constructor(
-        private data: Data,
-        public p2: PersonsService
+        public personSvc: PersonsService
     ) {
-
+      this.persons = personSvc.Persons;
     }
 
-    ngOnInit() {
-        this.data.content<Person>('person').get()
-            .subscribe(persons => this.persons = persons);
-    }
 }
