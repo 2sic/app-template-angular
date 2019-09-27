@@ -19,4 +19,4 @@ del.sync(`${publishPath}/{dist/${appName}}`, { force: true })
 console.log(`Publishing to ${publishPath}`)
 cpx.copySync("dist/**/*.*", `${publishPath}/dist`) // publish dist folder (ng-app)
 cpx.copySync("../dev/api/*.*", `${publishPath}/api`) // publish API folder
-cpx.copySync("../**/*.cshtml", `${publishPath}/..`)
+cpx.copySync("../{*.cshtml,!(ng)/**/*.cshtml}", `${publishPath}/..`)
