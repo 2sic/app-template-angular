@@ -9,6 +9,7 @@ import { PersonListComponent } from './person/person-list.component';
 import { PersonComponent } from './person/person.component';
 import { BusinessUnitSelectorComponent } from './business-unit-selector/business-unit-selector.component';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { DebugComponent } from './debug/debug.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InstructionsComponent } from './instructions/instructions.component';
     PersonListComponent,
     PersonComponent,
     BusinessUnitSelectorComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    DebugComponent
   ],
   imports: [
     BrowserModule,
