@@ -56,7 +56,7 @@
   This adds the tag and JS files needed to hot-load the angular app 
 *@
 @helper LoadFromLocalDev() {
-  @Html.Raw("<" + AppTag + " edition='" + CurrentEdition + "'>" + "</" + AppTag + ">")
+  @Html.Raw("<" + AppTag + AppAttributes + ">" + "</" + AppTag + ">")
   <script src="@LocalDevServer/runtime.js" type="module"></script>
   <script src="@LocalDevServer/polyfills.js" type="module"></script>
   <script src="@LocalDevServer/styles.js" type="module"></script>
@@ -156,8 +156,12 @@
     html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
 
     // 5. find the app-tag, and add the edition
-    html = html.Replace("<" + AppTag + ">", "<" + AppTag + " edition='" + CurrentEdition + "'>");
+    html = html.Replace("<" + AppTag + ">", "<" + AppTag + AppAttributes + ">");
 
     return html;
+  }
+
+  private string AppAttributes() {
+    return " edition='" + CurrentEdition + "'";
   }
 }
