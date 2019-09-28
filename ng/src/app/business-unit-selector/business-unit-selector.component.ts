@@ -18,6 +18,7 @@ export class BusinessUnitSelectorComponent implements OnInit {
     private personSvc: PersonsService
   ) {
     // get an observable list of BusinessUnit items from the backend
+    // TODO: 2rm - this should be changed to require BusinessUnit[] instead of BusinessUnit for consistency with query$
     this.buList = this.data.content$<BusinessUnit>('BusinessUnit');
     this.selected = personSvc.BuFilter;
    }
