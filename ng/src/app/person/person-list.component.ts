@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '@2sic.com/dnn-sxc-angular';
-import { Person } from '../models/person';
+import { Person } from '../models/person.model';
 import { PersonsService } from '../services/persons.service';
 import { Observable } from 'rxjs';
 

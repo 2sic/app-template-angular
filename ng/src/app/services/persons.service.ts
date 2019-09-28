@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, flatMap } from 'rxjs/operators';
 import { Data } from '@2sic.com/dnn-sxc-angular';
-import { Person } from '../models/person';
-import { BusinessUnit } from '../models/business-unit';
+import { Person } from '../models/person.model';
 
 @Injectable({
   providedIn: 'root'
