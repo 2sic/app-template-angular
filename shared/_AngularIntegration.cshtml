@@ -3,8 +3,10 @@
   They do a bunch of things, like switching between testing/live code and more.
 *@
 @using Connect.Razor.Blade;
+@using DotNetNuke.Framework;
 @using System.Linq;
 @using System.Text.RegularExpressions;
+@using System.Web.Helpers;
 @functions {
   public string 
     AppName,
@@ -56,7 +58,7 @@
   This adds the tag and JS files needed to hot-load the angular app 
 *@
 @helper LoadFromLocalDev() {
-  @Html.Raw("<" + AppTag + AppAttributes + ">" + "</" + AppTag + ">")
+  @Html.Raw("<" + AppTag + AppAttributes() + ">" + "</" + AppTag + ">")
   <script src="@LocalDevServer/runtime.js" type="module"></script>
   <script src="@LocalDevServer/polyfills.js" type="module"></script>
   <script src="@LocalDevServer/styles.js" type="module"></script>
@@ -156,12 +158,36 @@
     html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
 
     // 5. find the app-tag, and add the edition
-    html = html.Replace("<" + AppTag + ">", "<" + AppTag + AppAttributes + ">");
+    html = html.Replace("<" + AppTag + ">", "<" + AppTag + AppAttributes() + ">");
 
     return html;
   }
 
   private string AppAttributes() {
-    return " edition='" + CurrentEdition + "'";
+    return " "
+      + Tags.Attribute("edition", CurrentEdition) // " edition='" + CurrentEdition + "'"
+      + Tags.Attribute("api-edition", 25)
+      // + " api-edition='" + 25 + "'"
+      // get anti-forgery token into the attributes
+      // + " anti-forgery-token='" + AntiForgeryToken() + "'"
+      + Tags.Attribute("anti-forgery-token", AntiForgeryToken())
+      + Tags.Attribute("module-id", Dnn.Module.ModuleID)
+      + Tags.Attribute("tab-id", Dnn.Tab.TabID)
+      + Tags.Attribute("content-block-id", "todo")
+      ;
+  }
+
+  public string AntiForgeryToken() {
+    if(_antiForgeryToken == null) {
+      var tag = AntiForgery.GetHtml().ToString();
+      _antiForgeryToken = GetAttribute(tag, "value");
+    }
+    return _antiForgeryToken;
+  }
+  private string _antiForgeryToken;
+
+  private string GetAttribute(string tag, string attribute) {
+    return new Regex(@"(?<=\b" + attribute + @"="")[^""]*")
+      .Match(tag).Value;
   }
 }
