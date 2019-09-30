@@ -2,7 +2,6 @@
   These helpers are used by the CSHTML code which loads the angular app.
   They do a bunch of things, like switching between testing/live code and more.
 *@
-@using Connect.Razor.Blade;
 @using DotNetNuke.Framework;
 @using System.Linq;
 @using System.Text.RegularExpressions;
@@ -165,16 +164,18 @@
 
   private string AppAttributes() {
     return " "
-      + Tags.Attribute("edition", CurrentEdition) // " edition='" + CurrentEdition + "'"
-      + Tags.Attribute("api-edition", 25)
-      // + " api-edition='" + 25 + "'"
+      + Attribute("edition", CurrentEdition)
+      + Attribute("api-edition", CurrentEdition)
       // get anti-forgery token into the attributes
-      // + " anti-forgery-token='" + AntiForgeryToken() + "'"
-      + Tags.Attribute("anti-forgery-token", AntiForgeryToken())
-      + Tags.Attribute("module-id", Dnn.Module.ModuleID)
-      + Tags.Attribute("tab-id", Dnn.Tab.TabID)
-      + Tags.Attribute("content-block-id", "todo")
+      + Attribute("anti-forgery-token", AntiForgeryToken())
+      + Attribute("module-id", Dnn.Module.ModuleID.ToString())
+      + Attribute("tab-id", Dnn.Tab.TabID.ToString())
+      + Attribute("content-block-id", "todo")
       ;
+  }
+  
+  private string Attribute(string key, string value) {
+    return " " + key + "=\"" + value + "\" ";
   }
 
   public string AntiForgeryToken() {
