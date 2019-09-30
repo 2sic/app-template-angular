@@ -15,6 +15,8 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { TeamExplainedComponent } from './team/team-explained/team-explained.component';
 import { ApiExplainedComponent } from './api/api-explained/api-explained.component';
 import { DebugExplainedComponent } from './debug/debug-explained/debug-explained.component';
+import { TitleComponent } from './title/title.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DebugExplainedComponent } from './debug/debug-explained/debug-explained
     IntroductionComponent,
     TeamExplainedComponent,
     ApiExplainedComponent,
-    DebugExplainedComponent
+    DebugExplainedComponent,
+    TitleComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
