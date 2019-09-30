@@ -2,8 +2,8 @@
   "name": "ng-app",
   "version": "0.0.0",
   "config": {
-    "publish_path": "..",
-    "publish_path_example": "\\\\srv-devweb-03\\Projects\\2sxc Apps Dev\\Web\\Portals\\app-template-angular8\\2sxc\\Template-Angular8"
+    "publish_path_ex": "..",
+    "publish_path": "\\\\srv-devweb-03\\Projects\\2sxc Apps Dev\\Web\\Portals\\app-template-angular8\\2sxc\\Template-Angular8"
   },
   "scripts": {
     "ng": "ng",
