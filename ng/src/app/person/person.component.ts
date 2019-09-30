@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Person } from '../models/person.model';
 
 @Component({
-  selector: 'person',
+  selector: 'app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent {
-  @Input() person: any;
+  @Input() person: Person;
 
 }

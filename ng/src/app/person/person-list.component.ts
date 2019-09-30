@@ -4,7 +4,7 @@ import { PersonsService } from '../services/persons.service';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'person-list',
+    selector: 'app-person-list',
     templateUrl: './person-list.component.html',
 })
 export class PersonListComponent {
