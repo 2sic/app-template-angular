@@ -38,7 +38,9 @@
   also activate 2sxc helper JS for the integration and API calls to automatically work
 *@
 @helper AddBaseTagAndCoreJs() {
-  <base href="@Dnn.Tab.FullUrl">
+  // this is a special syntax to get the right url
+  // it's important, because otherwise certain pages like home won't actually have the right base path
+  <base href='@(Link.To(parameters: " ").Trim())'>
   <script type="text/javascript" src="~/desktopmodules/tosic_sexycontent/js/2sxc.api.min.js"></script>
 }
 
