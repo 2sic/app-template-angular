@@ -7,12 +7,12 @@ import { DebugComponent } from './debug/debug.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/intro', pathMatch: 'full' },
   { path: 'intro', component: IntroductionComponent },
   { path: 'team', component: TeamComponent },
   { path: 'team/:name', component: TeamComponent },
   { path: 'api', component: ApiDemoComponent },
   { path: 'debug', component: DebugComponent },
+  { path: '**', redirectTo: '/intro' },
 ];
 
 @NgModule({
