@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Data } from '@2sic.com/dnn-sxc-angular';
+import { Component, Input } from '@angular/core';
 import { Person } from '../models/person.model';
 import { PersonsService } from '../services/persons.service';
 import { Observable } from 'rxjs';
@@ -9,12 +8,17 @@ import { Observable } from 'rxjs';
     templateUrl: './person-list.component.html',
 })
 export class PersonListComponent {
-    persons: Observable<Person[]>;
+  persons: Observable<Person[]>;
 
-    constructor(
-        public personSvc: PersonsService
-    ) {
-      this.persons = personSvc.Persons;
-    }
+  @Input()
+  set bu(value: string) {
+    this.personSvc.BuFilter.next(value);
+  }
+
+  constructor(
+      public personSvc: PersonsService,
+  ) {
+    this.persons = personSvc.Persons;
+  }
 
 }

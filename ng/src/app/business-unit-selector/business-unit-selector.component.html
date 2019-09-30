@@ -1,16 +1,9 @@
 <div>
-  <ol>
-    <li>
-      Business Unit:
-    </li>
-    <li [ngClass]="{'selected': (selected | async) === ''}" (click)="selectBu('')">
-      All
-    </li>
-    <li
-      *ngFor="let bu of buList | async"
-      [ngClass]="{'selected': (selected | async) === bu.Name}"
-      (click)="selectBu(bu.Name)">
-      {{ bu.Name }}
-    </li>
-  </ol>
+  Business Unit:
+  <a [routerLink]="['/team']" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
+    All
+  </a>
+  <a *ngFor="let bu of buList | async" [routerLink]="['/team/' + bu.Name]" routerLinkActive="selected">
+    | {{ bu.Name }}
+  </a>
 </div>

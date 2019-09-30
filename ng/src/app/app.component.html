@@ -1,8 +1,15 @@
-<app-business-unit-selector></app-business-unit-selector>
-<person-list></person-list>
-<app-instructions></app-instructions>
+<h1>Angular 8 Template App</h1>
 
-<!-- show an example of API calls -->
-<app-api-demo></app-api-demo>
+<nav>
+  <a [routerLink]="['/intro']" routerLinkActive="active">Introduction</a> |
+  <a [routerLink]="['/team']" routerLinkActive="active">Team</a> |
+  <a [routerLink]="['/api']" routerLinkActive="active">WebApi Examples</a>
+</nav>
+<router-outlet></router-outlet>
+
+
+
+<hr>
+<app-instructions></app-instructions>
 
 <app-debug></app-debug>

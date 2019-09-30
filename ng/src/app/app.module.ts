@@ -11,6 +11,8 @@ import { BusinessUnitSelectorComponent } from './business-unit-selector/business
 import { InstructionsComponent } from './instructions/instructions.component';
 import { DebugComponent } from './debug/debug.component';
 import { ApiDemoComponent } from './api-demo/api-demo.component';
+import { TeamComponent } from './team/team.component';
+import { IntroductionComponent } from './introduction/introduction.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ApiDemoComponent } from './api-demo/api-demo.component';
     BusinessUnitSelectorComponent,
     InstructionsComponent,
     DebugComponent,
-    ApiDemoComponent
+    ApiDemoComponent,
+    TeamComponent,
+    IntroductionComponent
   ],
   imports: [
     BrowserModule,
