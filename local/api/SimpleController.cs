@@ -12,7 +12,7 @@ public class SimpleController : SxcApiController
 	[HttpGet]
 	public string Hello()
 	{
-		return "Hello from the controller with ValidateAntiForgeryToken in /api";
+		return "Hello from the controller in web api";
 	}
 
 }

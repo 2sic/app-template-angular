@@ -10,6 +10,7 @@ import { PersonComponent } from './person/person.component';
 import { BusinessUnitSelectorComponent } from './business-unit-selector/business-unit-selector.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { DebugComponent } from './debug/debug.component';
+import { ApiDemoComponent } from './api-demo/api-demo.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DebugComponent } from './debug/debug.component';
     PersonComponent,
     BusinessUnitSelectorComponent,
     InstructionsComponent,
-    DebugComponent
+    DebugComponent,
+    ApiDemoComponent
   ],
   imports: [
     BrowserModule,
