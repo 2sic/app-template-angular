@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BusinessUnit } from '../models/business-unit.model';
+import { BusinessUnit } from '../../models/business-unit.model';
 import { Data } from '@2sic.com/dnn-sxc-angular';
-import { PersonsService } from '../services/persons.service';
+import { PersonsService } from '../persons.service';
 
 @Component({
   selector: 'app-business-unit-selector',

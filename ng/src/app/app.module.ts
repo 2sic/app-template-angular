@@ -5,14 +5,16 @@ import { DnnInterceptor, ContentManagerModule } from '@2sic.com/dnn-sxc-angular'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PersonListComponent } from './person/person-list.component';
-import { PersonComponent } from './person/person.component';
-import { BusinessUnitSelectorComponent } from './business-unit-selector/business-unit-selector.component';
-import { InstructionsComponent } from './instructions/instructions.component';
+import { PersonListComponent } from './team/person/person-list.component';
+import { PersonComponent } from './team/person/person.component';
+import { BusinessUnitSelectorComponent } from './team/business-unit-selector/business-unit-selector.component';
 import { DebugComponent } from './debug/debug.component';
-import { ApiDemoComponent } from './api-demo/api-demo.component';
+import { ApiDemoComponent } from './api/api-demo.component';
 import { TeamComponent } from './team/team.component';
 import { IntroductionComponent } from './introduction/introduction.component';
+import { TeamExplainedComponent } from './team/team-explained/team-explained.component';
+import { ApiExplainedComponent } from './api/api-explained/api-explained.component';
+import { DebugExplainedComponent } from './debug/debug-explained/debug-explained.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { IntroductionComponent } from './introduction/introduction.component';
     PersonListComponent,
     PersonComponent,
     BusinessUnitSelectorComponent,
-    InstructionsComponent,
     DebugComponent,
     ApiDemoComponent,
     TeamComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    TeamExplainedComponent,
+    ApiExplainedComponent,
+    DebugExplainedComponent
   ],
   imports: [
     BrowserModule,

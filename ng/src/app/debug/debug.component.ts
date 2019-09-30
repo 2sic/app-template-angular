@@ -9,8 +9,6 @@ import { Context } from '@2sic.com/dnn-sxc-angular';
 export class DebugComponent implements OnInit {
 
   constructor(public context: Context) {
-    console.log({context});
-    // const x = context.edition$;
   }
 
   ngOnInit() {

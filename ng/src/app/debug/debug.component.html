@@ -1,9 +1,23 @@
 <h2>Debug DNN & 2sxc Parameters</h2>
 <p>This just shows the configuration currently in use.</p>
 <ul>
-  <li>Edition: {{ context.edition$ | async }}</li>
-  <li>ApiEdition: {{ context.apiEdition$ | async }}</li>
-  <li>ModuleId: {{ context.moduleId$ | async }}</li>
-  <li>TabId: {{ context.tabId$ | async }}</li>
-  <li>Anti Forgery Token: {{ context.antiForgeryToken$ | async }} </li>
+  <li>
+    Edition: {{ context.edition$ | async }}<br>
+    You would use this information for lazy-loading additional things from the correct build-folder (for example: if you needed to dynamically load some svg files).
+  </li>
+  <li>
+    ApiEdition: {{ context.apiEdition$ | async }} <br>
+    This is automatically used in the 2sxc API calls, so that you can run a staging copy of your code without affecting public users or for A/B testing.
+  </li>
+  <li>
+    ModuleId: {{ context.moduleId$ | async }} <br>
+    TabId: {{ context.tabId$ | async }} <br>
+    These are automatically used in most http calls, because they tell the server what page the user is on.
+  </li>
+  <li>
+    Anti Forgery Token: {{ context.antiForgeryToken$ | async }} <br>
+    This is automatically added to most http calls, for increased security. It changes with every page you load.
+  </li>
 </ul>
+<hr>
+<app-debug-explained></app-debug-explained>

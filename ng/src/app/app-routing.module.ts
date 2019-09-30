@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TeamComponent } from './team/team.component';
-import { ApiDemoComponent } from './api-demo/api-demo.component';
+import { ApiDemoComponent } from './api/api-demo.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { DebugComponent } from './debug/debug.component';
 

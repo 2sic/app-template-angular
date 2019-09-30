@@ -10,7 +10,5 @@ export class AppComponent extends DnnAppComponent {
   title = 'ng-app';
   constructor(el: ElementRef, context: Context) {
     super(el, context);
-    const edition = el.nativeElement.getAttribute('edition');
-    console.log('edition', {edition});
   }
 }

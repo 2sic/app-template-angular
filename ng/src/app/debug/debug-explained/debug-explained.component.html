@@ -1,0 +1,14 @@
+<div>
+    <h3>How it works</h3>
+    <p>
+      Dnn APIs require certain headers in http-requests. The most commen ist a <code>RequestVerificationToken</code> which is also known as the <code>Anti Forgery Token</code>. Additional headers like <code>ModuleId</code> or <code>TabID</code> provide context so the backend knows what system you are talking to.
+    </p>
+    <p>
+      These headers are automatically added to your http-requests thanks to dnn-sxc-angular. There are two ways dnn-sxc-angular gets these values:
+    </p>
+    <ol>
+      <li>using the attributes in the app-tag (faster, but harder to setup)</li>
+      <li>auto-detecting it from the HTML-DOM (slower, but just works)</li>
+    </ol>
+  </div>
+
