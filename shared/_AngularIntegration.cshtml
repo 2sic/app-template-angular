@@ -57,7 +57,10 @@
   This adds the tag and JS files needed to hot-load the angular app 
 *@
 @helper LoadFromLocalDev() {
-  @Html.Raw("<" + AppTag + AppAttributes() + ">" + "</" + AppTag + ">")
+  @Html.Raw("<" + AppTag + AppAttributes() + ">" 
+    + "This would load all scripts from " + LocalDevServer + ". If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
+    + "To make sure you're doing things right, please follow <a href='https://azing.org/2sxc/r/oCmPBI3p' target='_blank'>these instructions</a>."
+    + "</" + AppTag + ">")
   <script src="@LocalDevServer/runtime.js" type="module"></script>
   <script src="@LocalDevServer/polyfills.js" type="module"></script>
   <script src="@LocalDevServer/styles.js" type="module"></script>
