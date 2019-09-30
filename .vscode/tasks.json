@@ -29,6 +29,13 @@
             "path": "ng/",
             "group": "build",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "watch-api",
+            "path": "ng/",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }

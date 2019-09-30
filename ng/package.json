@@ -12,6 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "local": "ng serve --public-host localhost:4200 --disable-host-check",
+    "watch-api": "node deploy/watch-local-api.js",
     "build-to-staging": "ng build --prod && node deploy/publish.js staging",
     "build-to-live": "ng build --prod && node deploy/publish.js live"
   },
