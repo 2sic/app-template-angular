@@ -9,18 +9,21 @@ using System.Web.Http;
 [ValidateAntiForgeryToken]
 public class SimpleController : SxcApiController
 {
-	// Tell the server that we're listening to GET requests
 	[HttpGet]
-	public string Hello()
+	public string Hello(string name = null)
 	{
-		return "Hello from the controller in web api";
+		return name == null ? "Hello from the controller in web api" : "Hello " + name;
 	}
 
+
+	[HttpGet]
 	public int[] Numbers()
 	{
 		return new int[] { 7, 12, 2972 };
 	}
 
+
+	[HttpGet]
 	public dynamic Something(string name) 
 	{
 		return new {
