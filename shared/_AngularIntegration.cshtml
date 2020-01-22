@@ -171,10 +171,6 @@
     return " "
       + Attribute("edition", CurrentEdition)
       + Attribute("api-edition", CurrentEdition)
-      // get anti-forgery token into the attributes
-      + Attribute("anti-forgery-token", AntiForgeryToken())
-      + Attribute("module-id", Dnn.Module.ModuleID.ToString())
-      + Attribute("tab-id", Dnn.Tab.TabID.ToString())
       ;
   }
   
@@ -182,17 +178,4 @@
     return " " + key + "=\"" + value + "\" ";
   }
 
-  public string AntiForgeryToken() {
-    if(_antiForgeryToken == null) {
-      var tag = AntiForgery.GetHtml().ToString();
-      _antiForgeryToken = GetAttribute(tag, "value");
-    }
-    return _antiForgeryToken;
-  }
-  private string _antiForgeryToken;
-
-  private string GetAttribute(string tag, string attribute) {
-    return new Regex(@"(?<=\b" + attribute + @"="")[^""]*")
-      .Match(tag).Value;
-  }
 }
