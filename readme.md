@@ -17,3 +17,8 @@ The app can be installed from 2sxc (inside DNN). Follow [these instructions](htt
 * App Tutorial Angular 8 [Github](https://github.com/2sic/app-template-angular8) | [app catalog](https://2sxc.org/en/apps/app/tutorial-angular-8)
 * Dnn-Sxc-Angular [Github](https://github.com/2sic/dnn-sxc-angular) | [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
 * Documentation [recipes & instructions on azing](https://azing.org/2sxc/l/VPE4Usua/angular-apps-development)
+
+
+## History
+
+* 2020-11-09 updated shared code which extracts the generated index.html for DNN
