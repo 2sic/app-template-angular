@@ -54,7 +54,7 @@
   // --------------------------------   Get from ng serve   -------------------------------
   This adds the tag and JS files needed to hot-load the angular app 
 *@
-@helper LoadFromLocalNgServe(string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
+@helper LoadFromNgServe(string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
 
   @Html.Raw("<" + appTag + AppAttributes() + ">" 
     + "This would load all scripts from " + localDevServer + ". If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
