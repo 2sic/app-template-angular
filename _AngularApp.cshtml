@@ -1,33 +1,23 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
-@Edit.Enable(js: true)
-
-@using System.Text.RegularExpressions;
+@using ToSic.Razor.Blade;
 @{
-    // helper to integrate angular best-practice
-    var ngHelpers = CreateInstance("./shared/_AngularIntegration.cshtml");
+  // Enable 2sic JS APIs (this will load the latest js-api to help with getting data from 2sxc data base) 
+  Edit.Enable(js: true);
 
-    // Configure the helper - most things are ok by default
-    // to override, uncomment a line and change to your needs
-    ngHelpers.Configure(
-      // appName: "ng-app",
-      // appTag: "app-root",
-      // editions: new string[] {"live", "staging", "local"},
-      // defaultEdition: "live",
-      // localDevEdition: "local",
-      // localDevServer:  "http://localhost:4200"
-    );
+  // Add <base> tag using RazorBlade - Angular needs this so that links changing dialogs (routes) work properly
+  HtmlPage.AddBase((Link.Base()));
+
+  // Create helper to integrate angular best-practice with edition switching and everything
+  var ngHelpers = CreateInstance("./shared/_AngularIntegration.cshtml");
 }
-
-@* add base-href tag and basic JS files for everything to work *@
-@ngHelpers.AddBaseTagAndCoreJs()
 
 @* Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
 @if(Dnn.User.IsSuperUser) {
-  @ngHelpers.ShowEditionSelectorForThisApp()
+  @ngHelpers.ShowEditionSelectorForThisApp("live,staging,local")
 }
 
-@if(ngHelpers.CurrentEdition == ngHelpers.LocalDevEdition) {
-  @ngHelpers.LoadFromLocalDev()
+@if(ngHelpers.CurrentEdition == "local") {
+  @ngHelpers.LoadFromNgServe()
 } else {
-  @ngHelpers.LoadFromDnn();
+  @Html.Raw(ngHelpers.ImportAngularHtml());
 }
