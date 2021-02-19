@@ -1,22 +1,43 @@
 <h2>
-  Welcome to the Angular 11 Template App
+  Welcome to the Angular 11 Template App for DNN/2sxc
 </h2>
 <p>
   This app shows you how to leverage Angular 11 inside DNN and 2sxc. It will show you how to...
 </p>
 <ol>
-  <li>integrate Angular inside DNN</li>
-  <li>use routing (the url which switches SPA views)</li>
+  <li>
+    <a [routerLink]="['/intro/integrate']" routerLinkActive="active">Integrate Angular into DNN (the right way 😉)</a>
+  </li>
+  <li>
+    <a [routerLink]="['/intro/routing']" routerLinkActive="active">Use Angular Routing in DNN (the url which switches SPA views)</a>
+  </li>
+  <li>Call backend WebAPIs</li>
   <li>access data from content-items and queries</li>
-  <li>call backend WebAPIs</li>
   <li>develop on your local PC while running the app with live-reloading inside DNN 👍</li>
 </ol>
 
-<h3>Integrate Angular 11 inside DNN</h3>
+<hr>
+
+<router-outlet></router-outlet>
+
+
+
+
+<h3>Develop locally, run live in DNN</h3>
 <p>
-  Adding an Angular-App to DNN is kind of simple, but doing it right requires quite a bit of thought.
-  These are the parts we solved really well - which we recommend you use as inspiration:
+  You get up to 10x faster development when you can use live-compile and see the results in DNN from your local dev environment. Here's how it works:
+</p>
+<ol>
+  <li>First you copy the app to your local drive (or clone the same repo to a local folder) and initialize everything (see checklist)</li>
+  <li>Then you run <code>npm run local</code> in your console. This will start <code>ng serve</code> on <em>localhost:4200</em> and whenever you save a code file, it recompiles in seconds.</li>
+  <li>Our connector code in the <code>_AngularIntegration.cshtml</code> will now auto-load all the default bits so it just works!</li>
+</ol>
+
+<h3>Devolop locally - auto-deploy to Dnn Server</h3>
+<p>
+  Since you'll do most of the Angular development locally, we made sure that deployment to the target server is super easy. This helps if you have a normal network connection. If you use FTP, you'll have to do the deployment manually.
 </p>
 <ul>
-  <li>Our Razor-view <code>_AngularApp.cshtml</code> has various enhancements to TODO </li>
+  <li>In the <code>package.json</code> there is a property <code>publish_path</code> containing the target where the live server is</li>
+  <li>Running <code>npm run build-to-staging</code> or <code>npm run build-to-live</code> will auto-build and deploy to these editions on the live server</li>
 </ul>

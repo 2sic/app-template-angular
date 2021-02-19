@@ -1,0 +1,14 @@
+<h3>#1 Integrate Angular 11 inside DNN best practices</h3>
+<p>
+  Adding an Angular-App to DNN is kind of simple, but doing it right requires quite a bit of thought.
+  These are the parts we solved really well - which we recommend you use as inspiration.
+  These aspects are solved by the <code>_AngularApp.cshtml</code> and the helper <code>shared/_AngularIntegration.cshtml</code>:
+</p>
+<ul>
+  <li>Ensure we have the correct <code>base</code> tag in the header to get perfect <strong>routing</strong></li>
+  <li>Include a helper-JS which provides DNN module information to Angular (for <strong>WebApi calls</strong> which require more headers like the <em>RequestVerificationToken</em>)</li>
+  <li>Show <strong>edition selection</strong> for super-users</li>
+  <li>Show the app in <code>live</code> or <code>staging</code> edition so our customer can see a new version before it's live. It will also remember the chosen edition in the cookie.</li>
+  <li><strong>Parse/import</strong> the important parts from the <code>index.html</code> which angular created automatically.</li>
+  <li><strong>Special integration for developers</strong> - developers can run <code>ng serve</code> on their local system and see it in DNN. This makes development 10x faster.</li>
+</ul>
