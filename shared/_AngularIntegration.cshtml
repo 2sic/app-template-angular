@@ -57,8 +57,13 @@
 @helper LoadFromNgServe(string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
 
   @Html.Raw("<" + appTag + AppAttributes() + ">" 
-    + "This would load all scripts from " + localDevServer + ". If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
-    + "To make sure you're doing things right, please follow <a href='https://azing.org/2sxc/r/oCmPBI3p' target='_blank'>these instructions</a>."
+    + "This loads all scripts from " + localDevServer + " using the same protocol (http/https) as the current site uses. " 
+    + "If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
+    + "It should be running on localhost:4200 and use the same protocol as this website. <br><br>"
+    + "To make sure you're doing things right, please follow <a href='https://azing.org/2sxc/r/oCmPBI3p' target='_blank'>these instructions</a>. <br>"
+    + "<br>"
+    + "Special note: if your site is running with ssl then you'll want to use <code>npm run local-ssl</code>. Chrome will then complain that it doesn't know the security certificate. "
+    + "In this case, first browse to <a href='//localhost:4200/runtime.js' target='_blank'>a file hosted by the local server</a> and tell Chrome it's safe."
     + "</" + appTag + ">")
   <script src="@LocalDevServer/runtime.js" type="module"></script>
   <script src="@LocalDevServer/polyfills.js" type="module"></script>
@@ -126,7 +131,7 @@
   private const string DefaultEditions = "live,staging,local";  // Default list of editions
   private const string CookieNameTemplate = "polymorph-app-#-edition"; // the cookie name to remember edition when developing / testing
 
-  private const string LocalDevServer = "http://localhost:4200"; // default localhost dev-server using angular  
+  private const string LocalDevServer = "//localhost:4200"; // default localhost dev-server using angular  
 
   // ------------------------------- Private Functions ------------------------------
 
