@@ -11,11 +11,12 @@ export class PersonsService {
   BuFilter = new BehaviorSubject<string>('');
   Persons: Observable<Person[]>;
 
-  constructor(
-    data: Data
-  ) {
-    this.Persons = this.BuFilter.pipe(
-      mergeMap(bu => data.query$<Person[]>('BusinessUnitTeam?bu=' + bu))
-      );
+  constructor(data: Data ) {
+    this.Persons = this.BuFilter.pipe(mergeMap(bu => data.query$<Person[]>('BusinessUnitTeam?bu=' + bu)));
+  }
+
+  refresh() {
+    // just set the filter again, to re-trigger the query
+    this.BuFilter.next(this.BuFilter.value);
   }
 }
