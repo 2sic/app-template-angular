@@ -8,15 +8,9 @@ import { Observable } from 'rxjs';
     templateUrl: './person-list.component.html',
 })
 export class PersonListComponent {
-  persons: Observable<Person[]>;
-
-  @Input()
-  set bu(value: string) {
-    this.personSvc.BuFilter.next(value);
-  }
+  @Input() persons: Observable<Person[]>;
 
   constructor(public personSvc: PersonsService) {
-    this.persons = personSvc.Persons;
   }
 
 }

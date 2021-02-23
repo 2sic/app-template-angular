@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BusinessUnit } from '../models/business-unit.model';
 import { Data } from '@2sic.com/dnn-sxc-angular';
@@ -18,9 +18,5 @@ export class BusinessUnitSelectorComponent {
     // Query backend for stream of BusinessUnit[]
     this.businessUnits$ = this.data.content$<BusinessUnit[]>('BusinessUnit');
   }
-
-  // selectBu(bu: string) {
-  //   this.personSvc.BuFilter.next(bu);
-  // }
 
 }

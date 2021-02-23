@@ -9,16 +9,4 @@ import { Person } from '../models/person.model';
 export class PersonComponent {
   @Input() person: Person;
 
-  // constructor(private personService: PersonsService) {
-
-  // }
-
-  // toolbarConfig() {
-  //   return { toolbar: { entityId: this.person.Id } };
-  // }
-
-  // refresh() {
-  //   console.log('refresh called');
-  //   this.personService.refresh();
-  // }
 }
