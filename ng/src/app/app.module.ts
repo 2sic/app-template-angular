@@ -4,9 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DnnInterceptor, ContentManagerModule } from '@2sic.com/dnn-sxc-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PersonListComponent } from './team/person/person-list.component';
 import { PersonComponent } from './team/person/person.component';
-import { BusinessUnitSelectorComponent } from './team/business-unit-selector/business-unit-selector.component';
+import { BusinessUnitSelectorComponent } from './team/business-unit/business-unit-selector.component';
 import { DebugComponent } from './debug/debug.component';
 import { ApiDemoComponent } from './api/api-demo.component';
 import { TeamComponent } from './team/team.component';
@@ -21,7 +20,6 @@ import { WipSxcTagToolbarDirective } from './wip/sxc-toolbar-attribute';
 @NgModule({
   declarations: [
     AppComponent,
-    PersonListComponent,
     PersonComponent,
     BusinessUnitSelectorComponent,
     DebugComponent,

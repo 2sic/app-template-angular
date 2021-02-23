@@ -1,5 +1,11 @@
 <h2>Team</h2>
 <app-business-unit-selector></app-business-unit-selector>
-<app-person-list [persons]="personsSvc.Persons"></app-person-list>
+
+<ol>
+  <li *ngFor="let person of teamSvc.team$ | async" [sxcToolbar]='{toolbar:{entityId:person.Id}}' (refresh)="teamSvc.refresh()">
+    <app-person [person]="person"></app-person>
+  </li>
+</ol>
+
 <hr>
 <app-team-explained></app-team-explained>

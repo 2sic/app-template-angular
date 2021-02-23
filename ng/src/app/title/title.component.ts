@@ -5,13 +5,7 @@ import { Context } from '@2sic.com/dnn-sxc-angular';
   selector: 'app-title',
   templateUrl: './title.component.html',
 })
-export class TitleComponent implements OnInit {
+export class TitleComponent {
 
-  constructor(
-    public context: Context
-  ) { }
-
-  ngOnInit() {
-  }
-
+  constructor(public context: Context) { }
 }
