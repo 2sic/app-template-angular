@@ -5,8 +5,7 @@ import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss']
+  templateUrl: './team.component.html'
 })
 export class TeamComponent implements OnInit {
 

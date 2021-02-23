@@ -9,24 +9,18 @@ import { PersonsService } from '../persons.service';
   templateUrl: './business-unit-selector.component.html',
   styleUrls: ['./business-unit-selector.component.scss']
 })
-export class BusinessUnitSelectorComponent implements OnInit {
+export class BusinessUnitSelectorComponent {
 
-  buList: Observable<BusinessUnit[]>;
-  selected: Observable<string>;
-  constructor(
-    private data: Data,
-    private personSvc: PersonsService
-  ) {
-    // get an observable list of BusinessUnit items from the backend
-    this.buList = this.data.content$<BusinessUnit[]>('BusinessUnit');
-    this.selected = personSvc.BuFilter;
-   }
+  /** Stream of business units, provided back the backend */
+  businessUnits$: Observable<BusinessUnit[]>;
 
-  ngOnInit() {
+  constructor(private data: Data, private personSvc: PersonsService) {
+    // Query backend for stream of BusinessUnit[]
+    this.businessUnits$ = this.data.content$<BusinessUnit[]>('BusinessUnit');
   }
 
-  selectBu(bu: string) {
-    this.personSvc.BuFilter.next(bu);
-  }
+  // selectBu(bu: string) {
+  //   this.personSvc.BuFilter.next(bu);
+  // }
 
 }

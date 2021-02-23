@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Person } from '../models/person.model';
-import { PersonsService } from '../persons.service';
 
 @Component({
   selector: 'app-person',
@@ -10,16 +9,16 @@ import { PersonsService } from '../persons.service';
 export class PersonComponent {
   @Input() person: Person;
 
-  constructor(private personService: PersonsService) {
+  // constructor(private personService: PersonsService) {
 
-  }
+  // }
 
-  toolbarConfig() {
-    return { toolbar: { entityId: this.person.Id }, xsettings: { show: 'always', hover: 'none' } };
-  }
+  // toolbarConfig() {
+  //   return { toolbar: { entityId: this.person.Id } };
+  // }
 
-  refresh() {
-    console.log('refresh called');
-    this.personService.refresh();
-  }
+  // refresh() {
+  //   console.log('refresh called');
+  //   this.personService.refresh();
+  // }
 }

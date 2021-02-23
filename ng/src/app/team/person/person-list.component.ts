@@ -15,9 +15,7 @@ export class PersonListComponent {
     this.personSvc.BuFilter.next(value);
   }
 
-  constructor(
-      public personSvc: PersonsService,
-  ) {
+  constructor(public personSvc: PersonsService) {
     this.persons = personSvc.Persons;
   }
 
