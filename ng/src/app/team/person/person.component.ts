@@ -9,4 +9,8 @@ import { Person } from '../models/person.model';
 export class PersonComponent {
   @Input() person: Person;
 
+
+  toolbarConfig() {
+    return { toolbar: { entityId: this.person.Id }, settings: { show: 'always', hover: 'none' } };
+  }
 }
