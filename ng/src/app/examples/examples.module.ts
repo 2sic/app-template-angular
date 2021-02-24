@@ -10,10 +10,13 @@ import { BusinessUnitSelectorComponent } from './team/business-unit/business-uni
 import { TeamComponent } from './team/team.component';
 import { TeamExplainedComponent } from './team/team-explained.component';
 import { ContentManagerModule } from '@2sic.com/dnn-sxc-angular';
+import { IntroductionComponent } from './introduction/introduction.component';
 
 
 @NgModule({
   declarations: [
+    // Introduction
+    IntroductionComponent,
 
     // Team pages
     PersonComponent,

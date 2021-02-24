@@ -12,31 +12,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { DnnInterceptor, ContentManagerModule } from "@2sic.com/dnn-sxc-angular";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-// import { PersonComponent } from "./parts/team/person/person.component";
-// import { BusinessUnitSelectorComponent } from "./parts/team/business-unit/business-unit-selector.component";
-// import { DebugComponent } from "./parts/debug/debug.component";
-// import { ApiDemoComponent } from "./parts/api/api-demo.component";
-// import { TeamComponent } from "./parts/team/team.component";
-import { IntroductionComponent } from "./parts/introduction/introduction.component";
-// import { ApiExplainedComponent } from "./parts/api/api-explained/api-explained.component";
-// import { DebugExplainedComponent } from "./parts/debug/debug-explained/debug-explained.component";
 import { TitleComponent } from "./layout/title.component";
 import { NavigationComponent } from "./layout/navigation.component";
-// import { TeamExplainedComponent } from "./parts/team/team-explained.component";
 import { ExamplesModule } from './examples/examples.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // PersonComponent,
-    // BusinessUnitSelectorComponent,
-    // DebugComponent,
-    // ApiDemoComponent,
-    IntroductionComponent,
-    // TeamComponent,
-    // TeamExplainedComponent,
-    // ApiExplainedComponent,
-    // DebugExplainedComponent,
     TitleComponent,
     NavigationComponent,
   ],
@@ -52,7 +34,7 @@ import { ExamplesModule } from './examples/examples.module';
     ContentManagerModule, // this is needed for edit-toolbars to work
   ],
   providers: [
-    DnnInterceptor, // this ensures that requests sent to DNN include the proper header
+    DnnInterceptor, // this ensures that requests sent to DNN include the proper header - must be in the app-module (root level)
   ],
   bootstrap: [AppComponent],
 })
