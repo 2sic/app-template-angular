@@ -6,7 +6,6 @@ import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-api-demo',
   templateUrl: './api-demo.component.html',
-  styleUrls: ['./api-demo.component.scss']
 })
 export class ApiDemoComponent implements OnInit {
 
