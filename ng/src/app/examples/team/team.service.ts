@@ -17,7 +17,7 @@ export class TeamService {
 
   constructor(data: Data, context: Context) {
     // also get guid if in edit mode
-    const withGuid = context.sxc.isEditMode() ? '&includeGuid=true': '';
+    const withGuid = context.sxc?.isEditMode() ? '&includeGuid=true': '';
     this.team$ = this.selectedBu$.pipe(switchMap(bu => data.query$<Person[]>(`BusinessUnitTeam?bu=${bu}${withGuid}`)));
   }
 

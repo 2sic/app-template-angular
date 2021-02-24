@@ -1,9 +1,9 @@
 <div>
   Select Business Unit:
-  <a [routerLink]="['/team']" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
+  <a routerLink="/examples/team" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
     All
   </a>
-  <a *ngFor="let businessUnit of businessUnits$ | async" [routerLink]="['/team/' + businessUnit.Name]" routerLinkActive="selected">
+  <a *ngFor="let businessUnit of businessUnits$ | async" [routerLink]="'/examples/team/' + businessUnit.Name" routerLinkActive="selected">
     | {{ businessUnit.Name }}
   </a>
 </div>

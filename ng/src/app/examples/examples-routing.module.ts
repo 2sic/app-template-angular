@@ -11,7 +11,6 @@ const routes: Routes = [
   },
   { path: 'api', component: ApiDemoComponent },
   { path: 'debug', component: DebugComponent },
-  { path: 'team', component: DebugComponent },
   { path: 'team', component: TeamComponent },
   { path: 'team/:name', component: TeamComponent },
 
