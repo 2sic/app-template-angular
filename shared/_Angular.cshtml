@@ -12,9 +12,9 @@
   
   // ------------------------------ Get from Generated HTML ------------------------------
   // load the Angular generated html file and keep only the important parts
-  public string ImportAngularHtml(string appName = DefaultAppName, string appTag = DefaultAppTag) {
+  public string ImportAngularHtml(string edition, string appName = DefaultAppName, string appTag = DefaultAppTag) {
     // 1. build the path to where the angular app is stored
-    var resourcesPath = App.Path + "/" + Editions.CurrentEdition + "/dist/" + appName;
+    var resourcesPath = App.Path + "/" + edition + "/dist/" + appName;
     var indexFile = resourcesPath + "/index.html";
     string html_orig;
 
@@ -35,7 +35,7 @@
     html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
 
     // 5. find the app-tag, and add the edition
-    html = html.Replace("<" + appTag + ">", "<" + appTag + AppAttributes() + ">");
+    html = html.Replace("<" + appTag + ">", "<" + appTag + AppAttributes(edition) + ">");
 
     return html;
   }
@@ -45,9 +45,9 @@
   // --------------------------------   Get from ng serve   -------------------------------
   This adds the tag and JS files needed to hot-load the angular app 
 *@
-@helper LoadFromNgServe(string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
+@helper LoadFromNgServe(string edition = "local", string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
 
-  @Html.Raw("<" + appTag + AppAttributes() + ">" 
+  @Html.Raw("<" + appTag + AppAttributes(edition) + ">" 
     + "This loads all scripts from " + localDevServer + " using the same protocol (http/https) as the current site uses. " 
     + "If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
     + "It should be running on localhost:4200 and use the same protocol as this website. <br><br>"
@@ -72,14 +72,8 @@
   private const string LocalDevServer = "//localhost:4200"; // default localhost dev-server using angular  
 
 
-  private dynamic _editions;
-  private dynamic Editions {
-    get { return _editions ?? (_editions = CreateInstance("_Editions.cshtml")); }
-  } 
-
   // ------------------------------- Private Functions ------------------------------
-  private string AppAttributes() {
-    var edition = Editions.CurrentEdition;
-    return " " + Tag.Attr("edition", edition) + " " + Tag.Attr("api-edition", edition);
+  private string AppAttributes(string currentEdition) {
+    return " " + Tag.Attr("edition", currentEdition) + " " + Tag.Attr("api-edition", currentEdition);
   }
 }

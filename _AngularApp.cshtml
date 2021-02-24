@@ -7,19 +7,21 @@
   // Add <base> tag using RazorBlade - Angular needs this so that links changing dialogs (routes) work properly
   HtmlPage.AddBase((Link.Base()));
 
-  // Create helper to integrate angular best-practice with edition switching and everything
+  // Create helper to manage the various editions
   var editions = CreateInstance("./shared/_Editions.cshtml");
-  var ngHelpers = CreateInstance("./shared/_Angular.cshtml");
 
   // Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
   if(Dnn.User.IsSuperUser) {
     @editions.ShowEditionSelector("live,staging,local")
   }
 
+  // Create helper to integrate angular best-practice
+  var ngHelpers = CreateInstance("./shared/_Angular.cshtml");
+
   // Show the Angular either from ng-server (local) or from the compiled live/staging folders
   if(editions.CurrentEdition == "local") {
     @ngHelpers.LoadFromNgServe()
   } else {
-    @Html.Raw(ngHelpers.ImportAngularHtml());
+    @Html.Raw(ngHelpers.ImportAngularHtml(editions.CurrentEdition));
   }
 }
