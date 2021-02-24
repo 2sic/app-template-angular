@@ -1,0 +1,90 @@
+@using DotNetNuke.Framework;
+@using System.Linq;
+@using System.Text.RegularExpressions;
+@using System.Web.Helpers;
+@using ToSic.Razor.Blade;
+@*
+  // -------------------------------------------------------------------------------------
+  // These helpers are used by the CSHTML code which loads the angular app.
+  // They primarily track what edition to show by showing the links and storing it in a cookie
+  // -------------------------------------------------------------------------------------
+
+
+  // -------------------------------- Show Edition Select -------------------------------
+  Show the toolbar to select an edition - usually only for the superuser / developer
+*@
+@helper ShowEditionSelector(string editions = DefaultEditions) {
+  var Editions = editions.Split(',');
+  <div class="alert alert-info">
+    <span style="vertical-align: middle;">
+      Edition to show: &nbsp; 
+    </span>
+    <div class="btn-group">
+      @foreach(var name in Editions) {
+        var selected = name == CurrentEdition ? "selected" : "not-selected";
+        var style = name == CurrentEdition ? "font-weight: bold; text-decoration: underline;" : "";
+        <button type="button" onclick="sxcAngularApp.setEdition('@name')" class='btn btn-default' style="@style">
+          @name
+        </button>
+      }
+    </div>
+  </div>
+
+  <script>
+    window.sxcAngularApp = {
+      // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
+      setCookie: function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+      },
+      eraseCookie: function eraseCookie(name) {   
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+      },
+      setEdition: function setEdition(edition) {
+        let cookieName = '@EditionCookieName()';
+        if(edition)
+          this.setCookie(cookieName, edition);
+        else
+          this.eraseCookie(cookieName);
+
+        // reload page, preserving hash & angular route
+        location.reload();
+      }
+    }
+  </script>
+}
+
+
+@functions {
+  // ----------------------------------  Private Constants ----------------------------------
+  private const string DefaultEdition = "live";    // the default edition if nothing is set
+  private const string DefaultEditions = "live,staging,local";  // Default list of editions
+  private const string CookieNameTemplate = "polymorph-app-#-edition"; // the cookie name to remember edition when developing / testing
+
+  // -------------------------------- Current Edition Info -------------------------------
+  /// the current edition of this app, as stored in the cookie (or default in not set)
+  public string CurrentEdition {
+    get { return GetEditionFromCookie(DefaultEdition); }
+  }
+
+  // ------------------------------- Private Functions ------------------------------
+
+  /// The cookie name to store the edition when developing / testing uses the app-id in the key, so it won't interfere with other apps
+  private string EditionCookieName() {
+    return CookieNameTemplate.Replace("#", App.AppId.ToString());
+  }
+
+  /// Get the edition from the cookie
+  private string GetEditionFromCookie(string defaultEdition) {
+    var key = EditionCookieName();
+
+    return Request.Cookies.AllKeys.Contains(key) 
+      ? Request.Cookies[key].Value 
+      : defaultEdition;
+  }
+}

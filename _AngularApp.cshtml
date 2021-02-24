@@ -8,15 +8,16 @@
   HtmlPage.AddBase((Link.Base()));
 
   // Create helper to integrate angular best-practice with edition switching and everything
-  var ngHelpers = CreateInstance("./shared/_AngularIntegration.cshtml");
+  var editions = CreateInstance("./shared/_Editions.cshtml");
+  var ngHelpers = CreateInstance("./shared/_Angular.cshtml");
 
   // Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
   if(Dnn.User.IsSuperUser) {
-    @ngHelpers.ShowEditionSelectorForThisApp("live,staging,local")
+    @editions.ShowEditionSelector("live,staging,local")
   }
 
   // Show the Angular either from ng-server (local) or from the compiled live/staging folders
-  if(ngHelpers.CurrentEdition == "local") {
+  if(editions.CurrentEdition == "local") {
     @ngHelpers.LoadFromNgServe()
   } else {
     @Html.Raw(ngHelpers.ImportAngularHtml());
