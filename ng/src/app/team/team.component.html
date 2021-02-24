@@ -2,10 +2,14 @@
 <app-business-unit-selector></app-business-unit-selector>
 
 <ol>
-  <li *ngFor="let person of team; trackBy: trackById" [sxcToolbar]='["toolbar=empty?contentType=Person&entityId=" + person.Id, "edit"]' (refresh)="teamSvc.refresh()">
+  <li
+    *ngFor="let person of team; trackBy: trackById"
+    [sxc-toolbar]='toolbarFor(person)'
+    (refresh)="teamSvc.refresh()"
+  >
     <app-person [person]="person"></app-person>
   </li>
-  <li [sxcToolbar]='["toolbar=empty?contentType=Person&entityId=0", "new"]' (refresh)="teamSvc.refresh()">
+  <li [sxc-toolbar]='toolbarFor()' (refresh)="teamSvc.refresh()">
     new person
   </li>
 </ol>

@@ -33,4 +33,13 @@ export class TeamComponent extends ComponentWithSubscriptions {
 
   /** This ensures that angular can refresh the list in a faster/optimal way */
   trackById(index: number, person: Person): number { return person.Id; }
+
+
+  /** Create a toolbar configuration for a person or for new */
+  toolbarFor(person?: Person) {
+    const mainConfig = 'toolbar=empty?contentType=Person&entityId=' + (person?.Id ?? '0');
+    return person
+      ? [mainConfig, "edit", "delete&color=gray?entityGuid=" + person.Guid + "&title=" + person.Name]
+      : [mainConfig, 'new']
+  }
 }

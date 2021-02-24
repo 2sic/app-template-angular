@@ -15,7 +15,7 @@ import { ApiExplainedComponent } from './api/api-explained/api-explained.compone
 import { DebugExplainedComponent } from './debug/debug-explained/debug-explained.component';
 import { TitleComponent } from './title/title.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { WipSxcTagToolbarDirective } from './wip/sxc-toolbar-attribute';
+// import { SxcTagToolbarDirective } from './wip/sxc-toolbar-attribute';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { WipSxcTagToolbarDirective } from './wip/sxc-toolbar-attribute';
     NavigationComponent,
 
     // wip
-    WipSxcTagToolbarDirective,
+    // SxcTagToolbarDirective,
   ],
   imports: [
     BrowserModule,

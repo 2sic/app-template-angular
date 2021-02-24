@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Data } from '@2sic.com/dnn-sxc-angular';
+import { Context, Data } from '@2sic.com/dnn-sxc-angular';
 import { Person } from './person/person.model';
 
 @Injectable({
@@ -15,8 +15,10 @@ export class TeamService {
   /** This will contain the persons returned from the API */
   team$: Observable<Person[]>;
 
-  constructor(data: Data) {
-    this.team$ = this.selectedBu$.pipe(switchMap(bu => data.query$<Person[]>('BusinessUnitTeam?bu=' + bu)));
+  constructor(data: Data, context: Context) {
+    // also get guid if in edit mode
+    const withGuid = context.sxc.isEditMode() ? '&includeGuid=true': '';
+    this.team$ = this.selectedBu$.pipe(switchMap(bu => data.query$<Person[]>(`BusinessUnitTeam?bu=${bu}${withGuid}`)));
   }
 
   setFilter(businessUnit: string) {
