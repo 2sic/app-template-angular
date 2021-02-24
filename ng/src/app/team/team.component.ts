@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { ComponentWithSubscriptions } from '../wip/component-with-subsink';
+import { ComponentWithSubscriptions } from '../internal/component-with-subscriptions';
 import { Person } from './person/person.model';
 import { TeamService } from './team.service';
 
