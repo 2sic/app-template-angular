@@ -2,7 +2,7 @@
 <app-business-unit-selector></app-business-unit-selector>
 
 <ol>
-  <li *ngFor="let person of teamSvc.team$ | async" [sxcToolbar]='{toolbar:{entityId:person.Id}}' (refresh)="teamSvc.refresh()">
+  <li *ngFor="let person of teamSvc.team$ | async" [sxc-toolbar]='{toolbar:{entityId:person.Id}}' (refresh)="teamSvc.refresh()">
     <app-person [person]="person"></app-person>
   </li>
 </ol>

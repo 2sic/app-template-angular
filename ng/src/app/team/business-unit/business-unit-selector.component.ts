@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BusinessUnit } from './business-unit.model';
 import { Data } from '@2sic.com/dnn-sxc-angular';
-import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-business-unit-selector',
@@ -14,7 +13,7 @@ export class BusinessUnitSelectorComponent {
   /** Stream of business units, provided back the backend */
   businessUnits$: Observable<BusinessUnit[]>;
 
-  constructor(private data: Data, private personSvc: TeamService) {
+  constructor(private data: Data) {
     // Query backend for stream of BusinessUnit[]
     this.businessUnits$ = this.data.content$<BusinessUnit[]>('BusinessUnit');
   }

@@ -7,9 +7,11 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-
 @Directive({
-  selector: '[sxcToolbar]'
+
+  // the new recommended selector is `sxcToolbar`
+  // `sxc-toolbar` is simply still included for backward compatibility
+  selector: '[sxcToolbar], [sxc-toolbar]'
 })
 export class WipSxcTagToolbarDirective implements OnInit {
   /**
@@ -17,8 +19,13 @@ export class WipSxcTagToolbarDirective implements OnInit {
    * @type {*} see 2sxc docs, can be a string, string[], or an object
    * @memberof WipSxcTagToolbarDirective
    */
-  @Input('sxcToolbar') sxcToolbar: any;
+  @Input('sxc-toolbar') sxcToolbar: any;
 
+  /**
+   * A refresh callback when an action on the toolbar requires data to be refreshed.
+   * If not specified, the page will simply reload, if specified, this action will run and page-reload won't happen.
+   * New in v.11.12
+   */
   @Output('refresh') refresh = new EventEmitter<any>();
 
   constructor(private element: ElementRef, private context: Context) {
@@ -28,7 +35,7 @@ export class WipSxcTagToolbarDirective implements OnInit {
     const node = this.element.nativeElement;
     this.preventRefreshIfListenerConfigured();
     node.setAttribute("sxc-toolbar", JSON.stringify(this.sxcToolbar));
-    (this.context.$2sxc as any)._manage._toolbarManager.build(node);
+    (this.context.$2sxc as any)?._manage?._toolbarManager.build(node);
   }
 
   private preventRefreshIfListenerConfigured() {
