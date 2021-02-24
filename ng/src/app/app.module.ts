@@ -9,7 +9,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { DnnInterceptor, ContentManagerModule } from "@2sic.com/dnn-sxc-angular";
+import { ContentManagerModule, DnnSxcRootModule } from "@2sic.com/dnn-sxc-angular";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { TitleComponent } from "./layout/title.component";
@@ -31,11 +31,10 @@ import { ExamplesModule } from './examples/examples.module';
     ExamplesModule,
 
     // 2sxc Module
+    DnnSxcRootModule,     // this is important in the app-root, as it ensures that context is shared in sub-modules
     ContentManagerModule, // this is needed for edit-toolbars to work
   ],
-  providers: [
-    DnnInterceptor, // this ensures that requests sent to DNN include the proper header - must be in the app-module (root level)
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

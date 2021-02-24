@@ -9,7 +9,7 @@ import { PersonComponent } from './team/person/person.component';
 import { BusinessUnitSelectorComponent } from './team/business-unit/business-unit-selector.component';
 import { TeamComponent } from './team/team.component';
 import { TeamExplainedComponent } from './team/team-explained.component';
-import { ContentManagerModule } from '@2sic.com/dnn-sxc-angular';
+import { ContentManagerModule, DnnSxcRootModule } from '@2sic.com/dnn-sxc-angular';
 import { IntroductionComponent } from './introduction/introduction.component';
 
 

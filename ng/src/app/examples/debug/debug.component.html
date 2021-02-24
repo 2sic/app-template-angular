@@ -1,23 +1,30 @@
 <h2>Debug DNN & 2sxc Parameters</h2>
 <p>This just shows the configuration currently in use.</p>
-<ul>
+<ol>
   <li>
-    Edition: {{ context.edition }}<br>
+    <strong>Edition</strong> : {{ context.edition }}<br>
     You would use this information for lazy-loading additional things from the correct build-folder (for example: if you needed to dynamically load some svg files).
   </li>
   <li>
-    ApiEdition: {{ context.apiEdition }} <br>
+    <strong>ApiEdition</strong> : {{ context.apiEdition }} <br>
     This is automatically used in the 2sxc API calls, so that you can run a staging copy of your code without affecting public users or for A/B testing.
   </li>
-  <!-- <li>
-    ModuleId: {{ context.moduleId }} <br>
-    TabId: {{ context.tabId }} <br>
+  <li>
+    <strong>Context information for HTTP</strong> <br>
     These are automatically used in most http calls, because they tell the server what page the user is on.
-  </li> -->
-  <!-- <li>
-    Anti Forgery Token: {{ context.antiForgeryToken | async }} <br>
-    This is automatically added to most http calls, for increased security. It changes with every page you load.
-  </li> -->
-</ul>
+    <ol>
+      <li>
+        <strong>Page ID / Tab ID</strong> : {{ context.$2sxc.env.page() }}
+      </li>
+      <li>
+        <strong>Sxc ID / Module ID</strong> : {{ context.sxc.id }}
+      </li>
+      <li>
+        <strong>Anti Forgery Token</strong> : {{ context.$2sxc.env.rvt() }} <br>
+        This is automatically added to most http calls, for increased security. It changes with every page you load.
+      </li>
+    </ol>
+  </li>
+</ol>
 <hr>
 <app-debug-explained></app-debug-explained>
