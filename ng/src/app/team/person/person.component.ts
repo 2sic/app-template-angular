@@ -5,9 +5,8 @@ import { Person } from './person.model';
   selector: 'app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonComponent {
   @Input() person: Person;
-
 }

@@ -1,20 +1,36 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { ComponentWithSubscriptions } from '../wip/component-with-subsink';
+import { Person } from './person/person.model';
 import { TeamService } from './team.service';
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TeamComponent {
+export class TeamComponent extends ComponentWithSubscriptions {
 
-  constructor(private route: ActivatedRoute, public teamSvc: TeamService) {
-    const subscription = this.route.params.pipe(map(p => p.name || ''))
-      .subscribe(name => teamSvc.selectedBu$.next(name));
+  /** The data which is shown in the template */
+  team: Person[] = [];
 
-    teamSvc.team$.pipe(tap(t => console.log('team component', t))).subscribe();
-   }
+  constructor(private route: ActivatedRoute, public teamSvc: TeamService, private cdr: ChangeDetectorRef) {
+    super();
+    // listen to route changes and tell the team-service to filter by the route specified
+    // this must happen in this component, as the route belongs to the component
+    // and the service cannot know the components route.
+    this.autoUnsubscribe(
+      this.route.params.pipe(map(p => p.name || '')).subscribe(name => this.teamSvc.setFilter(name))
+    );
 
+    // listen to team changes and add to view, + trigger detectChanges an we want OnPush strategy
+    this.autoUnsubscribe(this.teamSvc.team$.subscribe((t => {
+      this.team = t;
+      this.cdr.detectChanges();
+    })));
+  }
+
+  /** This ensures that angular can refresh the list in a faster/optimal way */
+  trackById(index: number, person: Person): number { return person.Id; }
 }
