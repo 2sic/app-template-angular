@@ -1,3 +1,12 @@
+/*  ---------------------------------------------------------------------------
+    Tutorial
+    ---------------------------------------------------------------------------
+    This routing file configures the paths which the app knows.
+
+    Since it's a simple example, it is all in one file.
+    More complex apps and apps with lazy-loading will have multiple such files.
+    ---------------------------------------------------------------------------
+*/
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TeamComponent } from './team/team.component';
@@ -6,7 +15,6 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { DebugComponent } from './debug/debug.component';
 import { IntroIntegrateComponent } from './introduction/pages/integrate.component';
 import { IntroRoutingComponent } from './introduction/pages/routing.component';
-
 
 const routes: Routes = [
   { path: 'intro', component: IntroductionComponent, children: [

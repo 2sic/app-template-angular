@@ -1,3 +1,11 @@
+/*  ---------------------------------------------------------------------------
+    Tutorial
+    ---------------------------------------------------------------------------
+    This main module configuration has two special things it includes
+    - DnnInterceptor: this ensures all http-requests will have the neecessary DNN headers
+    - ContentManagerModule: this enables attributes like sxc-toolbar for editing UIs
+    ---------------------------------------------------------------------------
+*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +23,6 @@ import { ApiExplainedComponent } from './api/api-explained/api-explained.compone
 import { DebugExplainedComponent } from './debug/debug-explained/debug-explained.component';
 import { TitleComponent } from './title/title.component';
 import { NavigationComponent } from './navigation/navigation.component';
-// import { SxcTagToolbarDirective } from './wip/sxc-toolbar-attribute';
 
 @NgModule({
   declarations: [
@@ -31,17 +38,16 @@ import { NavigationComponent } from './navigation/navigation.component';
     DebugExplainedComponent,
     TitleComponent,
     NavigationComponent,
-
-    // wip
-    // SxcTagToolbarDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ContentManagerModule // this is needed for toolbars
+    ContentManagerModule    // this is needed for edit-toolbars to work
   ],
-  providers: [DnnInterceptor],
+  providers: [
+    DnnInterceptor,         // this ensures that requests sent to DNN include the proper header
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
