@@ -9,12 +9,12 @@
 */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TeamComponent } from './team/team.component';
-import { ApiDemoComponent } from './api/api-demo.component';
-import { IntroductionComponent } from './introduction/introduction.component';
-import { DebugComponent } from './debug/debug.component';
-import { IntroIntegrateComponent } from './introduction/pages/integrate.component';
-import { IntroRoutingComponent } from './introduction/pages/routing.component';
+import { TeamComponent } from './parts/team/team.component';
+import { ApiDemoComponent } from './parts/api/api-demo.component';
+import { IntroductionComponent } from './parts/introduction/introduction.component';
+import { DebugComponent } from './parts/debug/debug.component';
+import { IntroIntegrateComponent } from './parts/introduction/pages/integrate.component';
+import { IntroRoutingComponent } from './parts/introduction/pages/routing.component';
 
 const routes: Routes = [
   { path: 'intro', component: IntroductionComponent, children: [

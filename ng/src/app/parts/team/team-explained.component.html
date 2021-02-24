@@ -1,0 +1,13 @@
+<div>
+  <h3>How it works</h3>
+  <p>
+    Everything here is standard Angular, and it talks with DNN and <a href="https://2sxc.org/" target="_blank">2sxc</a> to get data.
+  </p>
+  <ul>
+    <li>the menu showing the business units uses the <code>Data.content$</code> from 2sxc to get all items of a specific type (in this case the BusinessUnits)</li>
+    <li>if you click on a business unit, the <code>route</code> is changed</li>
+    <li>the list showing the team uses <code>Data.query$</code> to query the <code>Person</code>s based on the selected BusinessUnit</li>
+    <li>if you're logged in as admin, the <code>sxc-toolbar</code> attribute gives you mouse-over menus to edit/delete things</li>
+  </ul>
+</div>
+

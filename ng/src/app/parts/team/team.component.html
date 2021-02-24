@@ -1,0 +1,14 @@
+<div [sxc-toolbar]="toolbarFor()" (refresh)="teamSvc.refresh()">
+  <h2>Team</h2>
+
+  <app-business-unit-selector></app-business-unit-selector>
+
+  <ol>
+    <li *ngFor="let person of team; trackBy: trackById" [sxc-toolbar]="toolbarFor(person)" (refresh)="teamSvc.refresh()">
+      <app-person [person]="person"></app-person>
+    </li>
+  </ol>
+
+  <hr />
+  <app-team-explained></app-team-explained>
+</div>
