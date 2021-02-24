@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Context } from '@2sic.com/dnn-sxc-angular';
 
 @Component({

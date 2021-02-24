@@ -1,12 +1,5 @@
 import { Context } from '@2sic.com/dnn-sxc-angular';
-import {
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Directive({
   // the new recommended selector is `sxcToolbar`
@@ -37,7 +30,7 @@ export class WipSxcTagToolbarDirective implements OnInit {
     // this.zone.runOutsideAngular(() => {
       const node = this.element.nativeElement;
       this.preventRefreshIfListenerConfigured();
-      node.setAttribute("sxc-toolbar", JSON.stringify(this.sxcToolbar || this.sxcToolbarOld));
+      node.setAttribute("sxc-toolbar", JSON.stringify(this.sxcToolbar || this.sxcToolbarOld || {}));
       return (this.context.$2sxc as any)?._manage?._toolbarManager.build(node);
     // });
   }
