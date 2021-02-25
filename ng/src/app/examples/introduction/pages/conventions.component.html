@@ -1,0 +1,15 @@
+
+<h3>Conventions used in the code</h3>
+<p>
+  We strive to create all our demos / tutorials / templates according to best practices - while keeping a balance to making it simple. Here are some important conventions we use, just to help you better navigate our code:
+</p>
+<ol>
+  <li>
+    We use a lot of <code>observables</code> as is best practices in Angular.
+    Since it's helpful to know what variables are observable streams, we usually add a <code>$</code> to the end of the variable name.
+    For example, a stream giving you a team is called <code>team$</code>.
+  </li>
+  <li>
+    We split the application into the intro/root part, and all the examples are in a separate <code>module</code>. This is great for demonstrating <code>sub-modules</code>, <code>sub-routing</code> and more. It also allows you to just copy this app, remove the <code>examples</code> module and build whatever you want.
+  </li>
+</ol>

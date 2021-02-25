@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-intro-route',
-  templateUrl: './routing.component.html'
+  templateUrl: './start.component.html'
 })
-export class IntroRoutingComponent {
+export class IntroStartComponent {
 
 }

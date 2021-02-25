@@ -3,8 +3,8 @@
     ---------------------------------------------------------------------------
     This routing file configures the paths which the app knows.
 
-    Since it's a simple example, it is all in one file.
-    More complex apps and apps with lazy-loading will have multiple such files.
+    Since it's a simple example, as most of the routes are actually
+    inside the examples-routing.module.ts.
     ---------------------------------------------------------------------------
 */
 import { NgModule } from '@angular/core';
