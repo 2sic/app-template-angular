@@ -27,6 +27,7 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 * 2021-02-25 
     * Improved razor code split
     * using latest (v11) dnn-sxc-angular
+    * split examples into sub-module to make it easy to remove them
     * extensive documentation of everything inside this
     * edit-toolbars in the application
     * after edit a callback refreshes the data (instead of page reload)
