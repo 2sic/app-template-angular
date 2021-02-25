@@ -20,7 +20,7 @@
   "private": true,
   "dependencies": {
     "@2sic.com/2sxc-typings": "^11.0.0",
-    "@2sic.com/dnn-sxc-angular": "^11.0.4",
+    "@2sic.com/dnn-sxc-angular": "^11.0.5",
     "@angular/animations": "~11.2.2",
     "@angular/common": "~11.2.2",
     "@angular/compiler": "~11.2.2",

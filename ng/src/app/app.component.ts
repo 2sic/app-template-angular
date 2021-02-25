@@ -6,6 +6,8 @@
     - pick up any configuration attributes on the <app-root> tag
     - automatically initialize all http adapters to auto-set DNN headers
     - ensure that hitting an enter-key on an input field doesn't submit the page, because asp.net would do that
+
+    #StepBootstrap
     ---------------------------------------------------------------------------
 */
 
@@ -17,7 +19,6 @@ import { DnnAppComponent, Context } from '@2sic.com/dnn-sxc-angular';
   templateUrl: './app.component.html'
 })
 export class AppComponent extends DnnAppComponent {
-  // title = 'ng-app';
   constructor(el: ElementRef, context: Context) {
     super(el, context);
   }

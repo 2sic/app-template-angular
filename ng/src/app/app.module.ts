@@ -23,14 +23,14 @@ import { ExamplesModule } from './examples/examples.module';
     NavigationComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
+    BrowserModule,        // this tells Angular to run in a browser
+    AppRoutingModule,     // this contains the application link-structure
+    HttpClientModule,     // this enables web-api calls and should only be included in the App root
 
     // Examples
     ExamplesModule,
 
-    // 2sxc Module
+    // 2sxc Module #StepBootstrap
     DnnSxcRootModule,     // this is important in the app-root, as it ensures that context is shared in sub-modules
     ContentManagerModule, // this is needed for edit-toolbars to work
   ],

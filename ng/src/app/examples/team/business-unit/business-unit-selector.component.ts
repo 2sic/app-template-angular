@@ -15,6 +15,7 @@ export class BusinessUnitSelectorComponent {
 
   constructor(private data: Data) {
     // Query backend for stream of BusinessUnit[]
+    // #ExampleData
     this.businessUnits$ = this.data.content$<BusinessUnit[]>('BusinessUnit');
   }
 

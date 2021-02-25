@@ -4,11 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-team-explained',
   templateUrl: './team-explained.component.html',
 })
-export class TeamExplainedComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class TeamExplainedComponent {
 
 }

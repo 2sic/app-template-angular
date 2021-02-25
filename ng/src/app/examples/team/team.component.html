@@ -1,9 +1,11 @@
+<!-- #ExampleContentManagement - this shows how to use the toolbar with just the add-button for a specific type and also do custom view refresh -->
 <div [sxc-toolbar]="toolbarFor()" (refresh)="teamSvc.refresh()">
   <h2>Team</h2>
 
   <app-business-unit-selector></app-business-unit-selector>
 
   <ol>
+    <!-- #ExampleContentManagement - this will create a delete/edit toolbar for this item and will also do custom view refresh-->
     <li *ngFor="let person of team; trackBy: trackById" [sxc-toolbar]="toolbarFor(person)" (refresh)="teamSvc.refresh()">
       <app-person [person]="person"></app-person>
     </li>

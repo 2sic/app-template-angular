@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { Context, Data } from '@2sic.com/dnn-sxc-angular';
 import { Person } from './person/person.model';
 
+// #ExampleData
 @Injectable({
   // this means that the service is not shared (not singleton)
   // so each component asking for this will get an own copy
