@@ -16,7 +16,7 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 
 ## Links
 
-* App Tutorial Angular 11 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-angular-8)
+* App Tutorial Angular 11 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-and-template-app-for-angular-11)
 * Dnn-Sxc-Angular [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
 * Documentation [recipes & instructions on azing](https://azing.org/2sxc/l/VPE4Usua/angular-apps-development)
 
@@ -31,3 +31,4 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
     * extensive documentation of everything inside this
     * edit-toolbars in the application
     * after edit a callback refreshes the data (instead of page reload)
+    * made data multi-language (English and German)
