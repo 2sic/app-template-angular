@@ -1,2 +1,5 @@
-/live/dist/
-/staging/dist/
+
+# as this is a tutorial app, the dist should be included so it works right away
+
+# /live/dist/
+# /staging/dist/
