@@ -1,4 +1,6 @@
-# App Template for Angular 8 Best Practices with DNN and 2sxc
+<img src="app-icon.png" width="300px" align="right">
+
+# App Template for Angular 11 Best Practices with DNN and 2sxc
 
 ## What is this?
 
@@ -10,15 +12,21 @@ If you wish to develop Angular within DNN, the initial setup can be challenging.
 
 ## How to Install
 
-The app can be installed from 2sxc (inside DNN). Follow [these instructions](https://azing.org/2sxc/r/oCmPBI3p).
+The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Follow [these instructions](https://azing.org/2sxc/r/oCmPBI3p).
 
 ## Links
 
-* App Tutorial Angular 8 [Github](https://github.com/2sic/app-template-angular8) | [app catalog](https://2sxc.org/en/apps/app/tutorial-angular-8)
-* Dnn-Sxc-Angular [Github](https://github.com/2sic/dnn-sxc-angular) | [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
+* App Tutorial Angular 11 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-angular-8)
+* Dnn-Sxc-Angular [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
 * Documentation [recipes & instructions on azing](https://azing.org/2sxc/l/VPE4Usua/angular-apps-development)
 
 
 ## History
 
 * 2020-11-09 updated shared code which extracts the generated index.html for DNN
+* 2021-02-25 
+    * Improved razor code split
+    * using latest (v11) dnn-sxc-angular
+    * extensive documentation of everything inside this
+    * edit-toolbars in the application
+    * after edit a callback refreshes the data (instead of page reload)
