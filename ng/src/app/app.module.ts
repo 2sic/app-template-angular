@@ -14,7 +14,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { TitleComponent } from "./layout/title.component";
 import { NavigationComponent } from "./layout/navigation.component";
-import { ExamplesModule } from './examples/examples.module';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,8 @@ import { ExamplesModule } from './examples/examples.module';
     AppRoutingModule,     // this contains the application link-structure
     HttpClientModule,     // this enables web-api calls and should only be included in the App root
 
-    // Examples
-    ExamplesModule,
+    // Impontant: don't load sub-modules here if you want lazy-loading to work
+    // ExamplesModule,    // not added here, as it should lazy-load
 
     // 2sxc Module #StepBootstrap
     DnnSxcRootModule,     // this is important in the app-root, as it ensures that context is shared in sub-modules
