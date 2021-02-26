@@ -35,7 +35,8 @@
     html = Regex.Replace(html, "(src|href)=\"(.*?)\"", "$1=\"" + resourcesPath + "/$2\"");
 
     // 5. find the app-tag, and add the edition
-    html = html.Replace("<" + appTag + ">", "<" + appTag + AppAttributes(edition) + ">");
+    // var publicResourcePath = App
+    html = html.Replace("<" + appTag + ">", "<" + appTag + AppAttributes(edition, resourcesPath + "/") + ">");
 
     return html;
   }
@@ -47,7 +48,7 @@
 *@
 @helper LoadFromNgServe(string edition = "local", string appTag = DefaultAppTag, string localDevServer = LocalDevServer) {
 
-  @Html.Raw("<" + appTag + AppAttributes(edition) + ">" 
+  @Html.Raw("<" + appTag + AppAttributes(edition, LocalDevServer + "/") + ">" 
     + "This loads all scripts from " + localDevServer + " using the same protocol (http/https) as the current site uses. " 
     + "If you see this message, your local dev is either not running, or the configuration is wrong. <br>"
     + "It should be running on localhost:4200 and use the same protocol as this website. <br><br>"
@@ -73,7 +74,9 @@
 
 
   // ------------------------------- Private Functions ------------------------------
-  private string AppAttributes(string currentEdition) {
-    return " " + Tag.Attr("edition", currentEdition) + " " + Tag.Attr("api-edition", currentEdition);
+  private string AppAttributes(string currentEdition, string distPath) {
+    return " " + Tag.Attr("edition", currentEdition) 
+      + " " + Tag.Attr("api-edition", currentEdition)
+      + (Text.Has(distPath) ? " " + Tag.Attr("angular-path", distPath) : "");
   }
 }
