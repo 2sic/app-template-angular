@@ -1,6 +1,6 @@
 {
   "name": "ng-app",
-  "version": "11.0.0",
+  "version": "11.01.0",
   "config": {
     "publish_path_ex": "..",
     "publish_path": "\\\\srv-devweb-03\\Projects\\2sxc Apps Dev\\Web\\Portals\\app-template-angular8\\2sxc\\Template-Angular11"
@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "local": "ng serve --public-host localhost:4200 --disable-host-check true --ssl false",
-    "local-ssl": "ng serve --public-host localhost:4200 --disable-host-check true --ssl true",
+    "local-ssl": "ng serve --public-host=localhost:4200 --disable-host-check=true --ssl=true",
     "watch-api": "node deploy/watch-local-api.js",
     "build-to-staging": "ng build --prod && node deploy/publish.js staging",
     "build-to-live": "ng build --prod && node deploy/publish.js live"
@@ -20,7 +20,7 @@
   "private": true,
   "dependencies": {
     "@2sic.com/2sxc-typings": "^11.0.0",
-    "@2sic.com/dnn-sxc-angular": "^11.0.5",
+    "@2sic.com/dnn-sxc-angular": "^11.1.0",
     "@angular/animations": "~11.2.2",
     "@angular/common": "~11.2.2",
     "@angular/compiler": "~11.2.2",
