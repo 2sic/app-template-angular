@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Data } from '@2sic.com/dnn-sxc-angular';
 import { HttpParams } from '@angular/common/http';
