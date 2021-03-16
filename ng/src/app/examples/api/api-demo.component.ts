@@ -7,7 +7,7 @@ import { HttpParams } from '@angular/common/http';
   selector: 'app-api-demo',
   templateUrl: './api-demo.component.html',
 })
-export class ApiDemoComponent implements OnInit {
+export class ApiDemoComponent {
 
   apiMessage$: Observable<string>;
   nameMessage$: Observable<string>;
@@ -29,10 +29,6 @@ export class ApiDemoComponent implements OnInit {
 
     this.something$ = simple.get<Something>('Something', new HttpParams().set('name', 'Samuel Jackson'));
    }
-
-  ngOnInit() {
-  }
-
 }
 
 interface Something {

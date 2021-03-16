@@ -13,10 +13,14 @@ export class BusinessUnitSelectorComponent {
   /** Stream of business units, provided back the backend */
   businessUnits$: Observable<BusinessUnit[]>;
 
-  constructor(private data: Data) {
+  constructor(data: Data) {
     // Query backend for stream of BusinessUnit[]
     // #ExampleData
-    this.businessUnits$ = this.data.content$<BusinessUnit[]>('BusinessUnit');
-  }
+    this.businessUnits$ = data.content$<BusinessUnit[]>('BusinessUnit');
 
+    // Demo, to just get one - note that you'll have to replace the ID 19403 with one on your system
+    // const buManager = data.content<BusinessUnit>('BusinessUnit');
+    // const oneBu$ = buManager.get(19403);
+    // oneBu$.subscribe((bu) => console.log(`Got BU ${bu.Name}`, bu));
+  }
 }
