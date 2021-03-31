@@ -23,5 +23,6 @@ cpx.copySync(`../${edition}/api/**/*.*`, `${publishPath}/api`) // publish API fo
 console.log(`Api of '${edition}' published...`);
 cpx.copySync("../*.cshtml", `${publishPath}/..`);
 console.log(`Razor files (cshtml) in root folder published...`);
-cpx.copySync("../!(ng)/**/*.cshtml}", `${publishPath}/..`);
+// cpx.copySync("../!(ng)/**/*.cshtml}", `${publishPath}/..`);
+cpx.copySync("../!(ng)/**/*.cshtml", `${publishPath}/..`);
 console.log(`Razor files (cshtml) in subfolders published...`);
