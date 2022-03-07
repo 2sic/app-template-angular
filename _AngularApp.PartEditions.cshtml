@@ -1,0 +1,52 @@
+@inherits Custom.Hybrid.Razor12
+@{
+  // -------------------------------- Show Edition Select -------------------------------
+  //Show the toolbar to select an edition - usually only for the superuser / developer
+
+  var editionHelper = CreateInstance("shared/Editions.cs");
+  var currentEdition = editionHelper.CurrentEdition;
+  
+  var editions = DynamicModel.Editions.Split(',');
+}
+<div class="alert alert-info">
+  <span style="vertical-align: middle;">
+    Edition to show: &nbsp; 
+  </span>
+  <div class="btn-group">
+    @foreach(var name in editions) {
+      var selected = name == currentEdition ? "selected" : "not-selected";
+      var style = name == currentEdition ? "font-weight: bold; text-decoration: underline;" : "";
+      <button type="button" onclick="sxcAngularApp.setEdition('@name')" class='btn btn-default' style="@style">
+        @name
+      </button>
+    }
+  </div>
+</div>
+
+<script>
+  window.sxcAngularApp = {
+    // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
+    setCookie: function setCookie(name,value,days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    },
+    eraseCookie: function eraseCookie(name) {   
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    },
+    setEdition: function setEdition(edition) {
+      let cookieName = '@editionHelper.EditionCookieName()';
+      if(edition)
+        this.setCookie(cookieName, edition);
+      else
+        this.eraseCookie(cookieName);
+
+      // reload page, preserving hash & angular route
+      location.reload();
+    }
+  }
+</script>

@@ -1,13 +1,20 @@
 // In case you need to know more about WebApis, 
 // visit the tutorials on https://2sxc.org/dnn-tutorials/
+
+// Add namespaces to enable security in Oqtane & Dnn despite the differences
+#if NETCOREAPP
+using Microsoft.AspNetCore.Authorization; // .net core [AllowAnonymous] & [Authorize]
+using Microsoft.AspNetCore.Mvc;           // .net core [HttpGet] / [HttpPost] etc.
+#else
+// 2sxclint:disable:no-dnn-namespaces 2sxclint:disable:no-web-namespaces
 using DotNetNuke.Web.Api;
-using ToSic.SexyContent.WebApi;
-using System;
 using System.Web.Http;
+#endif
+using System;
 
 [AllowAnonymous]
 [ValidateAntiForgeryToken]
-public class SimpleController : SxcApiController
+public class SimpleController : Custom.Hybrid.Api12
 {
 	[HttpGet]
 	public string Hello(string name = null)
