@@ -19,6 +19,7 @@
   },
   "private": true,
   "dependencies": {
+    "@2sic.com/sxc-angular": "^14.7.1",
     "@angular/animations": "~13.3.11",
     "@angular/common": "~13.3.11",
     "@angular/compiler": "~13.3.11",

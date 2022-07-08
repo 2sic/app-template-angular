@@ -1,6 +1,6 @@
+import { SxcApp } from '@2sic.com/sxc-angular';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Data } from '@2sic.com/dnn-sxc-angular';
 import { HttpParams } from '@angular/common/http';
 
 @Component({
@@ -14,15 +14,15 @@ export class ApiDemoComponent {
   numbers$: Observable<number[]>;
   something$: Observable<Something>;
 
-  constructor(data: Data) {
+  constructor(app: SxcApp) {
     // simple version for just a quick call, not re-using the api object
-    this.numbers$ = data.api$<number[]>('simple/Numbers');
+    this.numbers$ = app.api('simple').get('', '');
 
     // version for using the api-object many times;
-    const simple = data.api('simple');
+    const simple = app.api('simple');
 
     // short call version - without parameters
-    this.apiMessage$ = simple.get<string>('hello');
+    this.apiMessage$ = simple.get<string>('hello', '');
 
       // short call version - with parameters
     this.nameMessage$ = simple.get<string>('hello', new HttpParams().set('name', 'Michael'));
