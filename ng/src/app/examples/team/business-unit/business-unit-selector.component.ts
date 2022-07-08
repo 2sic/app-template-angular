@@ -19,7 +19,7 @@ export class BusinessUnitSelectorComponent {
     this.businessUnits$ = app.data<BusinessUnit>('BusinessUnit').getAll();
 
     // Demo, to just get one - note that you'll have to replace the ID 19403 with one on your system
-    // const buManager = data.content<BusinessUnit>('BusinessUnit');
+    // const buManager = app.data<BusinessUnit>('BusinessUnit');
     // const oneBu$ = buManager.get(19403);
     // oneBu$.subscribe((bu) => console.log(`Got BU ${bu.Name}`, bu));
   }

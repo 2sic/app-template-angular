@@ -16,7 +16,7 @@ export class ApiDemoComponent {
 
   constructor(app: SxcApp) {
     // simple version for just a quick call, not re-using the api object
-    this.numbers$ = app.api('simple').get('', '');
+    this.numbers$ = app.api('simple').get('Numbers', '');
 
     // version for using the api-object many times;
     const simple = app.api('simple');

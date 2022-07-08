@@ -19,7 +19,7 @@ export class TeamService {
   constructor(app: SxcApp, context: Context) {
     // also get guid if in edit mode
     const withGuid = context.sxc?.isEditMode() ? '&includeGuid=true': '';
-    this.team$ = this.selectedBu$.pipe(switchMap(bu => app.query<Person[]>(`BusinessUnitTeam?bu=${bu}${withGuid}`).getAll()));
+    this.team$ = this.selectedBu$.pipe(switchMap(bu => app.query<Person[]>(`BusinessUnitTeam?bu=${bu}${withGuid}`).getStream('Default')));
   }
 
   setFilter(businessUnit: string) {
