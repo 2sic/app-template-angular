@@ -12,11 +12,6 @@
   // Create helper to manage the editions (live, staging etc.)
   var editions = CreateInstance("shared/Editions.cs");
 
-  // Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
-  if(Edit.Enabled) {
-    @Html.Partial("_AngularApp.PartEditions.cshtml", new { Editions = "live,staging,local" })
-  }
-
   // Create helper to integrate angular best-practice
   var ngHelpers = CreateInstance("shared/Angular.cs");
 
@@ -25,5 +20,10 @@
     @Html.Partial("_AngularApp.PartLocalAssets.cshtml")
   } else {
     @Html.Raw(ngHelpers.ImportAngularHtml(editions.CurrentEdition));
+  }
+
+  // Show edition selector for host/super users only - you could also change this, to allow testers to see this *@
+  if(Edit.Enabled) {
+    @Html.Partial("_AngularApp.PartEditions.cshtml", new { Editions = "live,staging,local" })
   }
 }
