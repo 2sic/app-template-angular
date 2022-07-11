@@ -23,12 +23,17 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 
 ## History
 
-* 2020-11-09 updated shared code which extracts the generated index.html for DNN
+* 2020-11-09
+    * Updated shared code which extracts the generated index.html for DNN
 * 2021-02-25 
     * Improved razor code split
-    * using latest (v11) dnn-sxc-angular
-    * split examples into sub-module to make it easy to remove them
-    * extensive documentation of everything inside this
-    * edit-toolbars in the application
-    * after edit a callback refreshes the data (instead of page reload)
-    * made data multi-language (English and German)
+    * Using latest (v11) dnn-sxc-angular
+    * Split examples into sub-module to make it easy to remove them
+    * Extensive documentation of everything inside this
+    * Edit-toolbars in the application
+    * After edit a callback refreshes the data (instead of page reload)
+    * Made data multi-language (English and German)
+* 2022-07-08
+    * Migration to Angular 14
+    * dnn-sxc-angular replaced by new sxc-angular lib (v14.07.01)
+    * Using latest (v14.07.03) sxc-typings
