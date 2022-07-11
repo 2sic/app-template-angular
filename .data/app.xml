@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.04.00" ExportDate="2022-07-08T16:50:32.5061977+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.04.00" ExportDate="2022-07-11T09:08:36.7774271+02:00">
   <Header>
     <App Guid="692a7f92-4c92-42d7-8bf7-3bbb3d4cdc55" />
     <Language Default="en-us" />
@@ -83,7 +83,7 @@
       <Value Key="OriginalId" Value="" Type="String" />
       <Value Key="RequiredDnnVersion" Value="07.02.00" Type="String" />
       <Value Key="RequiredOqtaneVersion" Value="" Type="String" />
-      <Value Key="RequiredVersion" Value="13.00.00" Type="String" />
+      <Value Key="RequiredVersion" Value="11.11.00" Type="String" />
       <Value Key="SupportsAjaxReload" Value="False" Type="Boolean" />
       <Value Key="Version" Value="14.00.00" Type="String" />
     </Entity>
