@@ -36,4 +36,4 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 * 2022-07-08
     * Migration to Angular 14
     * dnn-sxc-angular replaced by new sxc-angular lib (v14.07.01)
-    * Using latest (v14.07.03) sxc-typings
+    * Using latest (v14.07.03) 2sxc-typings
