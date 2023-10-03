@@ -1,6 +1,6 @@
 <img src="app-icon.png" width="300px" align="right">
 
-# App Template for Angular 16 Best Practices with DNN and 2sxc
+# App Template for Angular 14 Best Practices with DNN and 2sxc
 
 ## What is this?
 
@@ -16,22 +16,23 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 
 ## Links
 
-* App Tutorial Angular 11 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-and-template-app-for-angular-11)
+* App Tutorial Angular 14 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-and-template-app-for-angular-11)
 * Dnn-Sxc-Angular [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
 * Documentation [recipes & instructions on azing](https://azing.org/2sxc/l/VPE4Usua/angular-apps-development)
 
-
 ## History
 
-* 2020-11-09 updated shared code which extracts the generated index.html for DNN
-* 2021-02-25
+* 2020-11-09
+  * Updated shared code which extracts the generated index.html for DNN
+* 2021-02-25 
   * Improved razor code split
-  * using latest (v11) dnn-sxc-angular
-  * split examples into sub-module to make it easy to remove them
-  * extensive documentation of everything inside this
-  * edit-toolbars in the application
-  * after edit a callback refreshes the data (instead of page reload)
-  * made data multi-language (English and German)
-* 2023-10 v16.00.00
-  * Update Angular to v16.2
-  * Update to Raztor Typed
+  * Using latest (v11) dnn-sxc-angular
+  * Split examples into sub-module to make it easy to remove them
+  * Extensive documentation of everything inside this
+  * Edit-toolbars in the application
+  * After edit a callback refreshes the data (instead of page reload)
+  * Made data multi-language (English and German)
+* 2022-07-08
+  * Migration to Angular 14
+  * dnn-sxc-angular replaced by new sxc-angular lib (v14.07.01)
+  * Using latest (v14.07.03) 2sxc-typings
