@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Context } from '@2sic.com/dnn-sxc-angular';
+import { Context } from '@2sic.com/sxc-angular';
 
 @Component({
   selector: 'app-debug',

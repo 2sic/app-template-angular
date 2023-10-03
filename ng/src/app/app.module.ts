@@ -9,7 +9,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { ContentManagerModule, DnnSxcRootModule } from "@2sic.com/dnn-sxc-angular";
+import { ContentManagerModule, SxcRootModule } from '@2sic.com/sxc-angular';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { TitleComponent } from "./layout/title.component";
@@ -30,7 +30,7 @@ import { NavigationComponent } from "./layout/navigation.component";
     // ExamplesModule,    // not added here, as it should lazy-load
 
     // 2sxc Module #StepBootstrap
-    DnnSxcRootModule,     // this is important in the app-root, as it ensures that context is shared in sub-modules
+    SxcRootModule,     // this is important in the app-root, as it ensures that context is shared in sub-modules
     ContentManagerModule, // this is needed for edit-toolbars to work
   ],
   providers: [],

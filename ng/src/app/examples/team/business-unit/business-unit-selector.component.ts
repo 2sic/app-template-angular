@@ -1,7 +1,7 @@
+import { SxcApp } from '@2sic.com/sxc-angular';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BusinessUnit } from './business-unit.model';
-import { Data } from '@2sic.com/dnn-sxc-angular';
 
 @Component({
   selector: 'app-business-unit-selector',
@@ -13,13 +13,13 @@ export class BusinessUnitSelectorComponent {
   /** Stream of business units, provided back the backend */
   businessUnits$: Observable<BusinessUnit[]>;
 
-  constructor(data: Data) {
+  constructor(app: SxcApp) {
     // Query backend for stream of BusinessUnit[]
     // #ExampleData
-    this.businessUnits$ = data.content$<BusinessUnit[]>('BusinessUnit');
+    this.businessUnits$ = app.data<BusinessUnit>('BusinessUnit').getAll();
 
     // Demo, to just get one - note that you'll have to replace the ID 19403 with one on your system
-    // const buManager = data.content<BusinessUnit>('BusinessUnit');
+    // const buManager = app.data<BusinessUnit>('BusinessUnit');
     // const oneBu$ = buManager.get(19403);
     // oneBu$.subscribe((bu) => console.log(`Got BU ${bu.Name}`, bu));
   }

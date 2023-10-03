@@ -12,13 +12,13 @@
 */
 
 import { Component, ElementRef } from '@angular/core';
-import { DnnAppComponent, Context } from '@2sic.com/dnn-sxc-angular';
+import { SxcAppComponent, Context } from '@2sic.com/sxc-angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent extends DnnAppComponent {
+export class AppComponent extends SxcAppComponent {
   constructor(el: ElementRef, context: Context) {
     super(el, context);
   }
