@@ -14,7 +14,11 @@ import { ContentManagerModule } from '@2sic.com/sxc-angular';
 
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    ExamplesRoutingModule,
+    // 2sxc Module
+    ContentManagerModule,
     // Introduction
     IntroductionComponent,
 
@@ -31,14 +35,6 @@ import { ContentManagerModule } from '@2sic.com/sxc-angular';
     // API demo pages
     ApiDemoComponent,
     ApiExplainedComponent,
-  ],
-  imports: [
-    CommonModule,
-    ExamplesRoutingModule,
-
-    // 2sxc Module
-    ContentManagerModule, // this is needed for edit-toolbars to work
-
-  ],
+  ]
 })
 export class ExamplesModule { }

@@ -4,11 +4,18 @@ import { map } from 'rxjs/operators';
 import { ComponentWithSubscriptions } from '../../core/component-with-subscriptions';
 import { Person } from './person/person.model';
 import { TeamService } from './team.service';
+import { TeamExplainedComponent } from './team-explained.component';
+import { PersonComponent } from './person/person.component';
+import { NgFor } from '@angular/common';
+import { BusinessUnitSelectorComponent } from './business-unit/business-unit-selector.component';
+import { ContentManagerModule } from '@2sic.com/sxc-angular';
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ContentManagerModule, BusinessUnitSelectorComponent, NgFor, PersonComponent, TeamExplainedComponent]
 })
 export class TeamComponent extends ComponentWithSubscriptions {
 
