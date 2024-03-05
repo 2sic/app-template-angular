@@ -8,5 +8,5 @@ import { Person } from './person.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonComponent {
-  @Input() person: Person;
+  @Input({ required: true }) person!: Person;
 }

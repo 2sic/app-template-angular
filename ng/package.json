@@ -1,6 +1,6 @@
 {
   "name": "ng-app",
-  "version": "16.00.00",
+  "version": "16.02.0",
   "config": {
     "publish_path_ex": "..",
     "publish_path": "C:\\Projects\\nvquicksite\\angular_template\\Website\\Portals\\0\\2sxc\\Template-Angular\\"
@@ -10,9 +10,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "local": "ng serve --public-host localhost:4200 --disable-host-check true --ssl false",
-    "local-ssl": "ng serve --public-host=localhost:4200 --disable-host-check=true --ssl=true",
+    "local": "ng serve --public-host localhost:4200 --disable-host-check true",
+    "local-ssl": "ng serve --public-host=localhost:4200 --disable-host-check=true --ssl",
     "watch-api": "node deploy/watch-local-api.js",
     "build-to-staging": "ng build --configuration production && node deploy/publish.js staging",
     "build-to-live": "ng build --configuration production && node deploy/publish.js live"
