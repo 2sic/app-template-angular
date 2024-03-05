@@ -11,12 +11,17 @@
     ---------------------------------------------------------------------------
 */
 
+import { Context, SxcAppComponent } from '@2sic.com/sxc-angular';
 import { Component, ElementRef } from '@angular/core';
-import { SxcAppComponent, Context } from '@2sic.com/sxc-angular';
+import { RouterOutlet } from '@angular/router';
+import { NavigationComponent } from './layout/navigation.component';
+import { TitleComponent } from './layout/title.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [TitleComponent, NavigationComponent, RouterOutlet]
 })
 export class AppComponent extends SxcAppComponent {
   constructor(el: ElementRef, context: Context) {
