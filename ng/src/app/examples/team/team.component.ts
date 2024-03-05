@@ -21,7 +21,7 @@ export class TeamComponent extends ComponentWithSubscriptions {
     // this must happen in this component, as the route belongs to the component
     // and the service cannot know the components route.
     this.autoUnsubscribe(
-      this.route.params.pipe(map(params => params.name || '')).subscribe(name => this.teamSvc.setFilter(name))
+      this.route.params.pipe(map(params => params['name'] || '')).subscribe(name => this.teamSvc.setFilter(name))
     );
 
     // listen to team changes and add to view, + trigger detectChanges an we want OnPush strategy
