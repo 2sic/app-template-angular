@@ -1,3 +1,9 @@
 {
-    "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  }
 }
