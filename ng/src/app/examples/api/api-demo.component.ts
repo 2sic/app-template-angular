@@ -2,10 +2,14 @@ import { SxcApp } from '@2sic.com/sxc-angular';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { ApiExplainedComponent } from './api-explained.component';
 
 @Component({
   selector: 'app-api-demo',
   templateUrl: './api-demo.component.html',
+  standalone: true,
+  imports: [ApiExplainedComponent, AsyncPipe, JsonPipe]
 })
 export class ApiDemoComponent {
 
@@ -24,11 +28,11 @@ export class ApiDemoComponent {
     // short call version - without parameters
     this.apiMessage$ = simple.get<string>('hello', '');
 
-      // short call version - with parameters
+    // short call version - with parameters
     this.nameMessage$ = simple.get<string>('hello', new HttpParams().set('name', 'Michael'));
 
     this.something$ = simple.get<Something>('Something', new HttpParams().set('name', 'Samuel Jackson'));
-   }
+  }
 }
 
 interface Something {
