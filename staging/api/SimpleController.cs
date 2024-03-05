@@ -31,9 +31,10 @@ public class SimpleController : Custom.Hybrid.ApiTyped
 
 
 	[HttpGet]
-	public dynamic Something(string name) 
+	public dynamic Something(string name)
 	{
-		return new {
+		return new
+		{
 			Name = name,
 			Birthday = new DateTime(2012, 05, 12)
 		};
