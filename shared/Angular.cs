@@ -2,7 +2,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Helpers;
 using ToSic.Razor.Blade;
-public class Angular: Custom.Hybrid.Code12 {
+public class Angular: Custom.Hybrid.CodeTyped {
   // -------------------------------------------------------------------------------------
   // These helpers are used by the CSHTML code which loads the angular app.
   // They do a bunch of things, like switching between testing/live code and more.
@@ -18,8 +18,8 @@ public class Angular: Custom.Hybrid.Code12 {
   // load the Angular generated html file and keep only the important parts
   public string ImportAngularHtml(string edition, string appName = DefaultAppName, string appTag = DefaultAppTag) {
     // 1. build the path to where the angular app is stored
-    var resourcesPath = App.Path + "/" + edition + "/dist/" + appName;
-    var indexFile = App.PhysicalPath + @"\" + edition + @"\dist\" + appName + @"\index.html";
+    var resourcesPath = App.Folder.Url + "/" + edition + "/dist/" + appName;
+    var indexFile = App.Folder.PhysicalPath + @"\" + edition + @"\dist\" + appName + @"\index.html";
     string html_orig;
 
     // 2. Read body contents from index.html

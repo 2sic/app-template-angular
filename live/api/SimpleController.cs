@@ -14,7 +14,7 @@ using System;
 
 [AllowAnonymous]
 [ValidateAntiForgeryToken]
-public class SimpleController : Custom.Hybrid.Api12
+public class SimpleController : Custom.Hybrid.ApiTyped
 {
 	[HttpGet]
 	public string Hello(string name = null)

@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.RazorTyped
+@{
+  var ngHelper = GetCode("shared/Angular.cs");
+  var localDevServer = ngHelper.GetLocalDevServer();
+}
+
+@Html.Raw(ngHelper.GetLocalDevTag())
+<script src="@localDevServer/runtime.js" type="module"></script>
+<script src="@localDevServer/polyfills.js" type="module"></script>
+<script src="@localDevServer/styles.js" type="module"></script>
+<script src="@localDevServer/vendor.js" type="module"></script>
+<script src="@localDevServer/main.js" type="module"></script>
+<link rel="stylesheet" href="@localDevServer/styles.css">

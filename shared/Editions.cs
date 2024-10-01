@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using ToSic.Razor.Blade;
 
-public class Editions: Custom.Hybrid.Code12 {
+public class Editions: Custom.Hybrid.CodeTyped {
   // -------------------------------------------------------------------------------------
   // These helpers are used by the CSHTML code which loads the angular app.
   // They primarily track what edition to show by showing the links and storing it in a cookie

@@ -1,6 +1,10 @@
 <img src="app-icon.png" width="300px" align="right">
 
-# App Template for Angular 14 Best Practices with DNN and 2sxc
+# App Template for Angular Best Practices with DNN and 2sxc
+
+| 2sxc                | ✅    | requires 2sxc v16.04
+| Dnn                 | ✅    | For v9.6.1+
+| Angular             | ✅    | For v16.2.7
 
 ## What is this?
 
@@ -16,7 +20,7 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 
 ## Links
 
-* App Tutorial Angular 14 [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-and-template-app-for-angular-11)
+* App Tutorial Angular  [Github](https://github.com/2sic/app-template-angular) | [app catalog](https://2sxc.org/en/apps/app/tutorial-and-template-app-for-angular-11)
 * Dnn-Sxc-Angular [npm](https://www.npmjs.com/package/@2sic.com/dnn-sxc-angular)
 * Documentation [recipes & instructions on azing](https://azing.org/2sxc/l/VPE4Usua/angular-apps-development)
 
@@ -24,7 +28,7 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
 
 * 2020-11-09
   * Updated shared code which extracts the generated index.html for DNN
-* 2021-02-25 
+* 2021-02-25
   * Improved razor code split
   * Using latest (v11) dnn-sxc-angular
   * Split examples into sub-module to make it easy to remove them
@@ -36,3 +40,9 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
   * Migration to Angular 14
   * dnn-sxc-angular replaced by new sxc-angular lib (v14.07.01)
   * Using latest (v14.07.03) 2sxc-typings
+* v16.00.00 2023-10-04
+  * Refactore Filename _
+  * Migration to Angular 16
+  * Update Readme
+  * Refactore Name to Template-Angular
+  * Update 2sxc v16 Standards Typed

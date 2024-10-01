@@ -1,9 +1,9 @@
 {
   "name": "ng-app",
-  "version": "16.00.0",
+  "version": "16.00.00",
   "config": {
     "publish_path_ex": "..",
-    "publish_path": "C:\\Projects\\2sxc\\Testing\\sxc-angular\\Website\\Portals\\0\\2sxc\\Template-Angular11\\"
+    "publish_path": "C:\\Projects\\nvquicksite\\angular_template\\Website\\Portals\\0\\2sxc\\Template-Angular\\"
   },
   "scripts": {
     "ng": "ng",
@@ -58,3 +58,4 @@
     "typescript": "~5.1.3"
   }
 }
+
