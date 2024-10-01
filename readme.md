@@ -4,7 +4,7 @@
 
 | 2sxc                | ✅    | requires 2sxc v16.04
 | Dnn                 | ✅    | For v9.6.1+
-| Angular             | ✅    | For v16.2.7
+| Angular             | ✅    | For v18.0.0
 
 ## What is this?
 
@@ -46,3 +46,7 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
   * Update Readme
   * Refactore Name to Template-Angular
   * Update 2sxc v16 Standards Typed
+* v17.00.00 2024-03-05
+  * Migration to Angular 17
+* v18.00.00 2024-10-01
+  * Migration to Angular 18
