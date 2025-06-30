@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './debug-explained.component.html',
 })
 export class DebugExplainedComponent {
-
-  constructor() { }
 }

@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './api-explained.component.html',
 })
 export class ApiExplainedComponent {
-
 }
