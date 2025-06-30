@@ -20,7 +20,6 @@ import { TitleComponent } from './layout/title.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  standalone: true,
   imports: [TitleComponent, NavigationComponent, RouterOutlet]
 })
 export class AppComponent extends SxcAppComponent {

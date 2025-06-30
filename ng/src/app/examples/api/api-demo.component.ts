@@ -1,14 +1,13 @@
 import { SxcApp } from '@2sic.com/sxc-angular';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpParams } from '@angular/common/http';
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import { ApiExplainedComponent } from './api-explained.component';
 
 @Component({
   selector: 'app-api-demo',
   templateUrl: './api-demo.component.html',
-  standalone: true,
   imports: [ApiExplainedComponent, AsyncPipe, JsonPipe]
 })
 export class ApiDemoComponent {

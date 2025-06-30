@@ -3,7 +3,9 @@
   <a routerLink="/examples/team" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
     All
   </a>
-  <a *ngFor="let businessUnit of businessUnits$ | async" [routerLink]="'/examples/team/' + businessUnit.Name" routerLinkActive="selected">
-    | {{ businessUnit.Name }}
-  </a>
+  @for (businessUnit of businessUnits$ | async; track businessUnit) {
+    <a [routerLink]="'/examples/team/' + businessUnit.Name" routerLinkActive="selected">
+      | {{ businessUnit.Name }}
+    </a>
+  }
 </div>

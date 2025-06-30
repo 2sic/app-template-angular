@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-debug-explained',
   templateUrl: './debug-explained.component.html',
-  standalone: true
 })
-export class DebugExplainedComponent implements OnInit {
+export class DebugExplainedComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

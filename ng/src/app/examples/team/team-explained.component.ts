@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-team-explained',
   templateUrl: './team-explained.component.html',
-  standalone: true
 })
 export class TeamExplainedComponent {
 

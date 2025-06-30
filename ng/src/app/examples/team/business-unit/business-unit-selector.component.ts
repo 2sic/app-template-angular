@@ -1,16 +1,15 @@
 import { SxcApp } from '@2sic.com/sxc-angular';
+import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BusinessUnit } from './business-unit.model';
-import { NgFor, AsyncPipe } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-business-unit-selector',
   templateUrl: './business-unit-selector.component.html',
   styleUrl: './business-unit-selector.component.scss',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgFor, AsyncPipe]
+  imports: [RouterLink, RouterLinkActive, AsyncPipe]
 })
 export class BusinessUnitSelectorComponent {
 

@@ -6,9 +6,11 @@
 
   <ol>
     <!-- #ExampleContentManagement - this will create a delete/edit toolbar for this item and will also do custom view refresh-->
-    <li *ngFor="let person of team; trackBy: trackById" [sxc-toolbar]="toolbarFor(person)" (refresh)="teamSvc.refresh()">
-      <app-person [person]="person"></app-person>
-    </li>
+    @for (person of team; track trackById($index, person)) {
+      <li [sxc-toolbar]="toolbarFor(person)" (refresh)="teamSvc.refresh()">
+        <app-person [person]="person"></app-person>
+      </li>
+    }
   </ol>
 
   <hr />

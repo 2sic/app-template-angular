@@ -6,7 +6,6 @@ import { Person } from './person.model';
   templateUrl: './person.component.html',
   styleUrl: './person.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
 })
 export class PersonComponent {
   @Input({ required: true }) person!: Person;
