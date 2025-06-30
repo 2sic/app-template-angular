@@ -4,7 +4,7 @@
 
 | 2sxc                | ✅    | requires 2sxc v16.04
 | Dnn                 | ✅    | For v9.6.1+
-| Angular             | ✅    | For v18.0.0
+| Angular             | ✅    | For v20.0.0
 
 ## What is this?
 
@@ -50,3 +50,5 @@ The solution in as **2sxc App** and can be installed from 2sxc (inside DNN). Fol
   * Migration to Angular 17
 * v18.00.00 2024-10-01
   * Migration to Angular 18
+* v18.00.00 2024-06-30
+  * Migration to Angular 20
