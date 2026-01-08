@@ -1,0 +1,37 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Extensions.JsEditions
+@using AppCode.Extensions.Angular
+@using ToSic.Sxc.Services;
+@using ToSic.Razor.Blade;
+
+@{
+  var editions = MyModel.String("Editions", fallback: "live,staging,local");
+
+  // Enable 2sic JS APIs (this will load the latest js-api to help with getting data from 2sxc data base)
+  Kit.Page.Activate("2sxc.JsCore");
+
+  // Add <base> tag using RazorBlade - TODO: Check if needed
+  Kit.Page.SetBase((Link.Base()));
+
+  // Create helper to manage the editions (live, staging etc.)
+  var editionsHelper = GetService<Editions>();
+
+  // Create helper to integrate angular best-practice
+  var angularHelper = GetService<Angular>();
+
+  // Show Angular either from dev (local) or from the compiled live/staging folders
+  if (editionsHelper.CurrentEdition == "local")
+  {
+    @Html.Partial("./Angular Local Dev.cshtml")
+  }
+  else
+  {
+    @Html.Raw(angularHelper.ImportAngularHtml(editionsHelper.CurrentEdition))
+  }
+
+  // Show edition selector for host/super users only - you could also change this, to allow testers to see this
+  if (MyUser.IsContentAdmin)
+  {
+    @Html.Partial("../js-app-editions/Editions Bar.cshtml", new { Editions = editions })
+  }
+}

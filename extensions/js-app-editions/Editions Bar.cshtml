@@ -1,12 +1,14 @@
 @inherits Custom.Hybrid.RazorTyped
+@using AppCode.Extensions.JsEditions
+
 @{
   // -------------------------------- Show Edition Select -------------------------------
   //Show the toolbar to select an edition - usually only for the superuser / developer
 
-  var editionHelper = GetCode("shared/Editions.cs");
+  var editionHelper = GetService<Editions>();
   var currentEdition = editionHelper.CurrentEdition;
 
-  var editions = MyModel.Code("Editions").Split(',');
+  var editions = MyModel.String("Editions").Split(',');
 }
 <div class="alert alert-info">
   <span style="vertical-align: middle;">
@@ -17,7 +19,7 @@
     {
       var selected = name == currentEdition ? "selected" : "not-selected";
       var style = name == currentEdition ? "font-weight: bold; text-decoration: underline;" : "";
-      <button type="button" onclick="sxcAngularApp.setEdition('@name')" class='btn btn-default' style="@style">
+      <button type="button" onclick="sxcJsEditions.setEdition('@name', '@editionHelper.EditionCookieName()')" class='btn btn-default' style="@style">
         @name
       </button>
     }
@@ -25,7 +27,7 @@
 </div>
 
 <script>
-  window.sxcAngularApp = {
+  window.sxcJsEditions = window.sxcJsEditions || {
     // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
     setCookie: function setCookie(name, value, days) {
       var expires = "";
@@ -39,15 +41,14 @@
     eraseCookie: function eraseCookie(name) {
       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
     },
-    setEdition: function setEdition(edition) {
-      let cookieName = '@editionHelper.EditionCookieName()';
+    setEdition: function setEdition(edition, cookieName) {
       if (edition)
         this.setCookie(cookieName, edition);
       else
         this.eraseCookie(cookieName);
 
-      // reload page, preserving hash & angular route
+      // reload page, preserving hash & route
       location.reload();
     }
-  }
+  };
 </script>

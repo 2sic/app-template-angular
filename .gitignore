@@ -3,3 +3,5 @@
 
 /live/dist/
 /staging/dist/
+bin
+obj
