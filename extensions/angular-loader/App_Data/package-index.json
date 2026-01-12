@@ -1,0 +1,22 @@
+{
+  "comments": "This file contains the list of files in a package with their hashes to check if files were changed.",
+  "version": "00.00.01",
+  "files": [
+    {
+      "file": "/Extensions/angular-loader/Angular Local Assets.cshtml",
+      "hash": "9b1039a1fda6435158160fe46e66621fef71e55cccd76531c3ca25d4e84f191d"
+    },
+    {
+      "file": "/Extensions/angular-loader/Angular Main.cshtml",
+      "hash": "89a1e076ef5de68587ddabc3b51b762df7e0ff17977818e8c2af398fc5689545"
+    },
+    {
+      "file": "/AppCode/Extensions/angular-loader/Angular.cs",
+      "hash": "f4d0e1da52b8415b131840cd2404ce6af6d1cbf7ed6cd72c618391800312d586"
+    },
+    {
+      "file": "/Extensions/angular-loader/App_Data/extension.json",
+      "hash": "d8cc941473d24770eb22cf3164d4396e1a8270460e29ce4260a8e9f334631904"
+    }
+  ]
+}

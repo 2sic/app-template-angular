@@ -1,0 +1,18 @@
+{
+  "comments": "This file contains the list of files in a package with their hashes to check if files were changed.",
+  "version": "00.00.01",
+  "files": [
+    {
+      "file": "/Extensions/js-app-editions/Editions Bar.cshtml",
+      "hash": "948af821b2703bb8cd7430625984aaf9c73336f4a5d0e335cacd50120eaa4c57"
+    },
+    {
+      "file": "/AppCode/Extensions/js-app-editions/Editions.cs",
+      "hash": "cef2d32a0f75c05621075608ba569a3f7df9dcc21d5f4c135e58752964b20b17"
+    },
+    {
+      "file": "/Extensions/js-app-editions/App_Data/extension.json",
+      "hash": "3765b513a83145353435837bfa5ba29e43691b1e55571a69f2a16baf0c0e32c5"
+    }
+  ]
+}
