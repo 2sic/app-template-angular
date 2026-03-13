@@ -1,22 +1,26 @@
 {
   "comments": "This file contains the list of files in a package with their hashes to check if files were changed.",
-  "version": "00.00.01",
+  "version": "01.00.00",
   "files": [
     {
       "file": "/Extensions/angular-loader/Angular Local Assets.cshtml",
-      "hash": "9b1039a1fda6435158160fe46e66621fef71e55cccd76531c3ca25d4e84f191d"
+      "hash": "4e1c37bdc6dd129c90e705589cdfe9682a263137fb1cbbfa2deb31a0ca3eb88a"
     },
     {
       "file": "/Extensions/angular-loader/Angular Main.cshtml",
-      "hash": "89a1e076ef5de68587ddabc3b51b762df7e0ff17977818e8c2af398fc5689545"
+      "hash": "df10a1ce43e3e6bdd135fd4b1627f6ccba8cdacc254e1dca6b46fa5343136f1e"
     },
     {
-      "file": "/AppCode/Extensions/angular-loader/Angular.cs",
-      "hash": "f4d0e1da52b8415b131840cd2404ce6af6d1cbf7ed6cd72c618391800312d586"
+      "file": "/Extensions/angular-loader/Example.cshtml",
+      "hash": "73e981cbfee4ef541061a4cecaf4704e19d0034acba0ef78f0b0ec92e64f8c2d"
+    },
+    {
+      "file": "/AppCode/Extensions/AngularLoader/Angular.cs",
+      "hash": "e64ca2cbfa016562e0d16d883c0027f59a198bd1ddc5b4c0dfa7856efa159466"
     },
     {
       "file": "/Extensions/angular-loader/App_Data/extension.json",
-      "hash": "d8cc941473d24770eb22cf3164d4396e1a8270460e29ce4260a8e9f334631904"
+      "hash": "d2e8bfdcc0a0c02c925877cb40a9d15abe911824669ee120e40a040accfb3c83"
     }
   ]
 }

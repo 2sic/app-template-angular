@@ -1,0 +1,21 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@{
+  var angularConfig = new
+  {
+    // the path to your angular app - this should be the path where the index.html of your angular app is located, relative to the root of your 2sxc app
+    AngularAppPath = "relative/path/to/angular/app",
+    // usually something like "app-root"
+    AngularAppTag = "your-app-root-tag",
+    // different editions of your angular app, e.g. live, staging, local - this will be used to switch between compiled and dev code
+    // you can leave this empty if you don't need
+    Editions = "live,staging,local",
+    // the path to your local dev server where angular is running in development mode (usually something like http://localhost:4200)
+    LocalDevServerPath = "//localhost:4200",
+    // the list of files that angular generates in development mode - you can find these in the index.html that angular generates when running in dev mode
+    // depending on your angular configuration, this could be different - make sure to adjust this to your needs
+    LocalDevFiles = "runtime.js,polyfills.js,styles.js,vendor.js,main.js"
+  };
+}
+
+@Html.Partial("./extensions/angular-loader/Angular Main.cshtml", data: angularConfig)

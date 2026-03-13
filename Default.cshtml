@@ -1,3 +1,9 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Html.Partial("./extensions/angular-loader/Angular Main.cshtml")
+@Html.Partial("./extensions/angular-loader/Angular Main.cshtml", data: new {
+  AngularAppPath = "/dist/ng-app",
+  AngularAppTag = "app-root",
+  Editions = "live,staging,local",
+  LocalDevServerPath = "//localhost:4200",
+  LocalDevFiles = "runtime.js,polyfills.js,styles.js,vendor.js,main.js"
+})

@@ -1,33 +1,34 @@
 @inherits Custom.Hybrid.RazorTyped
-@using AppCode.Extensions.JsEditions
+@using AppCode.Extensions.JsAppEditions
 
 @{
   // -------------------------------- Show Edition Select -------------------------------
   //Show the toolbar to select an edition - usually only for the superuser / developer
 
-  var editionHelper = GetService<Editions>();
+  var editionHelper = GetService<JsAppEditionService>();
   var currentEdition = editionHelper.CurrentEdition;
 
   var editions = MyModel.String("Editions").Split(',');
 }
 <div class="alert alert-info">
-  <span style="vertical-align: middle;">
-    Edition to show: &nbsp;
-  </span>
-  <div class="btn-group">
-    @foreach (var name in editions)
-    {
-      var selected = name == currentEdition ? "selected" : "not-selected";
-      var style = name == currentEdition ? "font-weight: bold; text-decoration: underline;" : "";
-      <button type="button" onclick="sxcJsEditions.setEdition('@name', '@editionHelper.EditionCookieName()')" class='btn btn-default' style="@style">
-        @name
-      </button>
-    }
+  <div class="btn-toolbar align-items-center">
+    <div>
+      Edition to show: &nbsp;
+    </div>
+    <div class="btn-group btn-group-sm">
+      @foreach (var name in editions)
+      {
+        var selected = name == currentEdition ? "active" : "not-selected";
+        <button type="button" onclick="sxcJsAppEditions.setEdition('@name', '@editionHelper.EditionCookieName()')" class='btn btn-outline-secondary @selected'>
+          @name
+        </button>
+      }
+    </div>
   </div>
 </div>
 
 <script>
-  window.sxcJsEditions = window.sxcJsEditions || {
+  window.sxcJsAppEditions = window.sxcJsAppEditions || {
     // Source: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
     setCookie: function setCookie(name, value, days) {
       var expires = "";
