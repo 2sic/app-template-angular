@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.07.00" ExportDate="2023-10-04T09:08:21.6419409+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="21.06.00" ExportDate="2026-03-13T11:48:16.614358+01:00">
   <Header>
     <App Guid="692a7f92-4c92-42d7-8bf7-3bbb3d4cdc55" />
     <Language Default="en-us" />
@@ -139,6 +139,9 @@
       <Value Key="AllowTokenTemplates" Value="False" Type="Boolean">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
+      <Value Key="DebugLog" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
       <Value Key="Description" Value="" Type="String">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
@@ -160,13 +163,13 @@
       <Value Key="RequiredOqtaneVersion" Value="" Type="String">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredVersion" Value="16.04.00" Type="String">
+      <Value Key="RequiredVersion" Value="21.00.00" Type="String">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
       <Value Key="SupportsAjaxReload" Value="False" Type="Boolean">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="16.00.00" Type="String">
+      <Value Key="Version" Value="20.03.00" Type="String">
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
     </Entity>
@@ -426,6 +429,59 @@
         <Dimension DimensionID="178" ReadOnly="false" />
       </Value>
     </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="70b516b9-c920-4204-a4d0-4bd4d9e3eb08" Json="True">
+      <Value Key="ContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Default" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Default.cshtml" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="PresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="" Type="String">
+        <Dimension DimensionID="178" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="6498" RelativePath="adam\Template-Angular\G0B_FCMWrEqNLnAMYk4oHA\Photo\guy-with-glasses.jpg" />
@@ -435,6 +491,7 @@
     <File Id="6494" RelativePath="adam\Template-Angular\Zg-rn2H_xUS2RMN3NeogwQ\Photo\lady-look-the-other-way.jpg" />
     <File Id="6496" RelativePath="adam\Template-Angular\k1nKCqFyLEGY2fwKO2QwKg\Photo\guy-phone.jpg" />
     <File Id="6497" RelativePath="adam\Template-Angular\WxxwILDYcEGzdkPkfIkuHQ\Photo\guy-with-hairdo.jpg" />
+    <File Id="6640" RelativePath="adam\Template-Angular\sUan5Gn4YUG_ol37XEAGew\Photo\Screenshot 2025-04-30 094203.png" />
   </PortalFiles>
   <PortalFolders>
     <Folder Id="14244" RelativePath="adam/Template-Angular/G0B_FCMWrEqNLnAMYk4oHA/Photo/" />
@@ -444,12 +501,14 @@
     <Folder Id="14236" RelativePath="adam/Template-Angular/Zg-rn2H_xUS2RMN3NeogwQ/Photo/" />
     <Folder Id="14240" RelativePath="adam/Template-Angular/k1nKCqFyLEGY2fwKO2QwKg/Photo/" />
     <Folder Id="14242" RelativePath="adam/Template-Angular/WxxwILDYcEGzdkPkfIkuHQ/Photo/" />
+    <Folder Id="14582" RelativePath="adam/Template-Angular/sUan5Gn4YUG_ol37XEAGew/Photo/" />
     <Folder Id="14230" RelativePath="adam/Template-Angular/" />
     <Folder Id="14233" RelativePath="adam/Template-Angular/355LITuIv0Cf5nXFlv5Omg/" />
     <Folder Id="14231" RelativePath="adam/Template-Angular/BBynxUGbXEaM33JAUs36bQ/" />
     <Folder Id="14237" RelativePath="adam/Template-Angular/F14DtEZgME-TTjc6JBrhtg/" />
     <Folder Id="14243" RelativePath="adam/Template-Angular/G0B_FCMWrEqNLnAMYk4oHA/" />
     <Folder Id="14239" RelativePath="adam/Template-Angular/k1nKCqFyLEGY2fwKO2QwKg/" />
+    <Folder Id="14581" RelativePath="adam/Template-Angular/sUan5Gn4YUG_ol37XEAGew/" />
     <Folder Id="14241" RelativePath="adam/Template-Angular/WxxwILDYcEGzdkPkfIkuHQ/" />
     <Folder Id="14235" RelativePath="adam/Template-Angular/Zg-rn2H_xUS2RMN3NeogwQ/" />
   </PortalFolders>
