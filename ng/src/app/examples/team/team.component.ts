@@ -1,4 +1,4 @@
-import { ContentManagerModule } from '@2sic.com/sxc-angular';
+import { SxcTagToolbarDirective } from '@2sic.com/sxc-angular';
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,7 @@ import { TeamService } from './team.service';
   selector: 'app-team',
   templateUrl: './team.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ContentManagerModule, BusinessUnitSelectorComponent, PersonComponent, TeamExplainedComponent]
+  imports: [SxcTagToolbarDirective, BusinessUnitSelectorComponent, PersonComponent, TeamExplainedComponent]
 })
 export class TeamComponent extends ComponentWithSubscriptions {
 

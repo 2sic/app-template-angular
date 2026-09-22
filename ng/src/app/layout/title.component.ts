@@ -1,12 +1,12 @@
-import { ContentManagerModule, Context } from '@2sic.com/sxc-angular';
+import { SxcContext, SxcTagToolbarDirective } from '@2sic.com/sxc-angular';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
-  imports: [ContentManagerModule]
+  imports: [SxcTagToolbarDirective]
 })
 export class TitleComponent {
 
-  constructor(public context: Context) { }
+  constructor(public sxcContext: SxcContext) { }
 }

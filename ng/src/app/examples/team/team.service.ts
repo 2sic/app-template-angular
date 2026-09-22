@@ -1,4 +1,4 @@
-import { Context, SxcApp } from '@2sic.com/sxc-angular';
+import { SxcContext, SxcApp } from '@2sic.com/sxc-angular';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -16,9 +16,9 @@ export class TeamService {
   /** This will contain the persons returned from the API */
   team$: Observable<Person[]>;
 
-  constructor(app: SxcApp, context: Context) {
+  constructor(app: SxcApp, sxcContext: SxcContext) {
     // also get guid if in edit mode
-    const withGuid = context.sxc?.isEditMode() ? '&includeGuid=true': '';
+    const withGuid = sxcContext.sxc?.isEditMode() ? '&includeGuid=true': '';
     this.team$ = this.selectedBu$.pipe(switchMap(bu => app.query<Person[]>(`BusinessUnitTeam?bu=${bu}${withGuid}`).getStream('Default')));
   }
 

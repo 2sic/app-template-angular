@@ -1,4 +1,4 @@
-import { Context } from '@2sic.com/sxc-angular';
+import { SxcContext } from '@2sic.com/sxc-angular';
 import { Component } from '@angular/core';
 import { DebugExplainedComponent } from './debug-explained/debug-explained.component';
 
@@ -9,5 +9,5 @@ import { DebugExplainedComponent } from './debug-explained/debug-explained.compo
 })
 export class DebugComponent {
   // the constructor asks for the context to show context information in the html template
-  constructor(public context: Context) { }
+  constructor(public sxcContext: SxcContext) { }
 }
